@@ -11,7 +11,13 @@ angular.module( 'itemManagementApp' )
 	}
 
 	$http.get( '/api/items' ).success( function( items ) {
+
 		$scope.items = items;
+
+		angular.forEach( $scope.items, function( item ) {
+			item.isLow = item.quantity <= item.lowQuantity;
+		});
+
 	});
 
 	$scope.edit = function( item ) {
