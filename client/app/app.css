@@ -62,6 +62,7 @@
 	font-size: inherit;
 	min-height: 650px;
 	background-color: rgba( 238, 238, 238, 0.0 );
+	padding-top: 30px;
 }
 
 .home-button {
@@ -152,7 +153,7 @@
 }
 
 .message-container {
-	position: absolute;
+	position: fixed;
 	z-index: 2000;
 	top: 61px;
 	left: 102px;
@@ -237,4 +238,9 @@
 	padding: 30px 0;
 	margin-top: 70px;
 	border-top: 1px solid #E5E5E5;
+}
+
+.page-size {
+	width: initial;
+	display: inline;
 }

@@ -26,7 +26,7 @@ exports.create = function(req, res) {
   var item = req.body;
 
   item.lastUpdateDate = new Date();
-  item.createDate = transaction.lastUpdateDate; 
+  item.createDate = item.lastUpdateDate; 
 
   Item.create(req.body, function(err, item) {
     if(err) { return handleError(res, err); }

@@ -1,0 +1,6 @@
+<a data-ng-click="sort(sortvalue)" class="sort-header">
+	<span data-ng-transclude=""></span>
+	<span data-ng-show="sortedby == sortvalue">
+		<i data-ng-class="{true: 'fa fa-arrow-up', false: 'fa fa-arrow-down'}[sortdir == '1']"></i>
+	</span>
+</a>

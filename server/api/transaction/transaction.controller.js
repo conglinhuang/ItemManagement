@@ -1,15 +1,44 @@
 'use strict';
 
 var _ = require('lodash');
+
 var Transaction = require('./transaction.model');
 var Item = require('../item/item.model');
 
 // Get list of transactions
 exports.index = function(req, res) {
-	Transaction.find(function (err, transactions) {
+
+	var params = req.query;
+
+	var filter = {};
+
+	if( params.searchText ) {
+		filter['item.name'] = { $regex : params.searchText, $options : 'i' };
+	}
+	
+	if( params.startDate && params.endDate ) {
+		filter['createDate'] = { '$gte' : new Date( params.startDate ), '$lt' : new Date( params.endDate ) };
+	}
+
+	var sort = {};
+	sort[params.sort] = params.sortOrder;
+
+	var page = params.page;
+	var pageSize = params.pageSize;
+
+	Transaction.paginate(filter, page, pageSize, function( err, pageCount, paginatedResults, itemCount ) {
+
 		if(err) { return handleError(res, err); }
-		return res.json(200, transactions);
-	});
+		return res.json(200, {
+
+			totalPages : pageCount,
+			content : paginatedResults,
+			totalElements : itemCount
+
+		});
+
+	}, { sortBy : sort });
+
 };
 
 // Get a single transaction
@@ -95,7 +124,7 @@ function processItem( item, newQuantity, oldQuantity, res, callback ) {
 		if( err ) { return handleError( res, err ); }
 		if( !item ) { return res.send(404); }
 
-		// build an array of child 
+		// build an array of child item ids
 		var childItemIds = [];
 		for( var i = 0; i < item.childItems.length; i++ ) {
 			childItemIds.push( item.childItems[i].item._id );
@@ -103,15 +132,36 @@ function processItem( item, newQuantity, oldQuantity, res, callback ) {
 
 		Item.find({
 			'_id' : { $in : childItemIds }
-		}, function( err, items ) {
+		}, function( err, childItems ) {
 
-			console.log( items );
+			for( var i = 0; i < childItems.length; i++ ) {
+				
+				var childItem = childItems[i];
+				var childNewQuantity = newQuantity * item.childItems[i].quantity;
+				var childOldQuantity = oldQuantity * item.childItems[i].quantity;
+
+				if( childItem.quantity + childOldQuantity < childNewQuantity ) {
+					return handleError( res, childItem.name + '数量不足' );
+				}
+				else {
+					childItem.quantity = childItem.quantity + childOldQuantity - childNewQuantity;
+				}
+
+			}
 
 			if( item.quantity + oldQuantity < newQuantity ) {
-				return handleError( res, '物品数量不足' );
+				return handleError( res, item.name + '数量不足' );
 			}
 			else {
 				item.quantity = item.quantity + oldQuantity - newQuantity;
+			}
+
+			for( var i = 0; i < childItems.length; i++ ) {
+
+				childItems[i].save( function(err) {
+					if (err) { return handleError(res, err); }
+				});
+
 			}
 
 			item.save( function(err) {

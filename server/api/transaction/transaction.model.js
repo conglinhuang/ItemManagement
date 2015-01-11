@@ -1,5 +1,6 @@
 'use strict';
 
+var mongoosePaginate = require( 'mongoose-paginate' );
 var mongoose = require('mongoose'),
 	Schema = mongoose.Schema;
 
@@ -14,4 +15,5 @@ var TransactionSchema = new Schema({
 	lastUpdateDate: Date
 });
 
+TransactionSchema.plugin( mongoosePaginate );
 module.exports = mongoose.model('Transaction', TransactionSchema);

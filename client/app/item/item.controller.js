@@ -70,11 +70,13 @@ angular.module( 'itemManagementApp' )
 .controller( 'ItemCtrlEdit', function ( $scope, $http, $modalInstance, item, items, MessageService ) {
 	
 	$scope.item = item ? item : {};
+	$scope.items = angular.copy( items );
 
 	// remove this item
 	var index = items.indexOf( item );
-	$scope.items = angular.copy( items );
-	$scope.items.splice( index , 1 );
+	if( index > 0) {
+		$scope.items.splice( index , 1 );
+	};
 
 	$scope.save = function() {
 
@@ -113,22 +115,22 @@ angular.module( 'itemManagementApp' )
 		
 		return function( listItem ) {
 
-			for( var i = 0; i < $scope.item.childItems.length; i++ ) {
+			// only allow one level of parent-child
 
-				var childItem = $scope.item.childItems[i].item;
+			if( listItem.childItems && listItem.childItems.length > 0 ) {
+				return false;
+			}
 
-				if( childItem._id === listItem._id ) {
-					return false;
-				}
-				else {
+			// check when item is already selected
 
-					for( var j = 0; j < listItem.childItems.length; j++ ) {
-						
-						var listChildItem = listItem.childItems[j].item;
+			if(  $scope.item.childItems ) {
 
-						if( listChildItem._id === $scope.item._id ) {
-							return false;
-						}
+				for( var i = 0; i < $scope.item.childItems.length; i++ ) {
+
+					var childItem = $scope.item.childItems[i].item;
+
+					if( childItem._id === listItem._id ) {
+						return false;
 					}
 
 				}
@@ -151,6 +153,8 @@ angular.module( 'itemManagementApp' )
 			item : item,
 			quantity : 1
 		});
+
+		$scope.childItem = null;
 	}
 
 	$scope.deleteChildItem = function( childItem ) {

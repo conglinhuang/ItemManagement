@@ -12,47 +12,88 @@
 	<div class="row">
 		<div class="jumbotron">
 			
-			<div class="list-actions row">
+			<div class="row">
 				<div class="col-md-3 text-left">
+
 					<div class="input-group">
-					
-						<input type="text" name="search" class="form-control" ng-model="searchText" placeholder="搜索...">
-						
+						<input type="text" name="search" class="form-control" ng-model="criteria.searchText" placeholder="搜索..." ng-change="thresholdFind(1)">
 						<span class="input-group-btn">
-							<button type="button" class="btn btn-default" ng-click="searchText = '';">
+							<button type="button" class="btn btn-default" ng-click="criteria.searchText = ''; find(1);">
 								<span class="glyphicon glyphicon-remove"></span>
 							</button>
 						</span>
-						
 					</div>
+
 				</div>
+				<div class="col-md-3 text-left">
+
+					<p class="input-group">
+						<input type="text" placeholder="开始日期" class="form-control" datepicker-popup="{{dateFormat}}" ng-model="criteria.startDate" is-open="startDateOpened" datepicker-options="dateOptions" ng-required="true" close-text="Close" ng-click="openDatePicker( $event, 'startDateOpened' )"/>
+						<span class="input-group-btn">
+							<button type="button" class="btn btn-default" ng-click="openDatePicker( $event, 'startDateOpened' )"><i class="glyphicon glyphicon-calendar"></i></button>
+						</span>
+					</p>
+
+				</div>
+				<div class="col-md-3 text-left">
+
+					<p class="input-group">
+						<input type="text" placeholder="截至日期" class="form-control" datepicker-popup="{{dateFormat}}" ng-model="criteria.endDate" is-open="endDateOpened" datepicker-options="dateOptions" ng-required="true" close-text="Close" ng-click="openDatePicker( $event, 'endDateOpened' )" ng-change="shiftEndDate()"/>
+						<span class="input-group-btn">
+							<button type="button" class="btn btn-default" ng-click="openDatePicker( $event, 'endDateOpened' )"><i class="glyphicon glyphicon-calendar"></i></button>
+						</span>
+					</p>
+
+				</div>
+				<div class="col-md-3 text-right">
+					<a href="" ng-click="find(1)" class="btn btn-info"><span class="glyphicon glyphicon-search"></span> 搜索</a>
+				</div>
+
+			</div>
+
+			<div class="list-actions row">
+
+				<div class="col-md-3 text-left">
+					<span>每页显示：</span>
+					<select class="page-size form-control" ng-model="criteria.pageSize" ng-change="find(1)">
+						<option value="10">10</option>
+						<option value="50">50</option>
+						<option value="100">100</option>
+						<option value="9999999">全部</option>
+					</select>
+				</div>
+
 				<div class="col-md-9 text-right">
 					<a href="" ng-click="edit()" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign"></span> 添加</a>
 				</div>
+
 			</div>
 
 			<table class="table table-striped table-bordered">
 				<thead>
 					<tr>
 						<th>
-							<a href="" ng-click="sort.predicate = 'item.name'; sort.reverse = !sort.reverse;">
+							<sort-by onsort="onSort" sortdir="criteria.sortOrder" sortedby="criteria.sort" sortValue="item.name">
 								物品
-							</a>
+							</sort>
 						</th>
 						<th>
-							<a href="" ng-click="sort.predicate = 'quantity'; sort.reverse = !sort.reverse;">
+							<sort-by onsort="onSort" sortdir="criteria.sortOrder" sortedby="criteria.sort" sortValue="quantity">
 								数量
-							</a>
+							</sort>
 						</th>
 						<th>
-							<a href="" ng-click="sort.predicate = 'createDate'; sort.reverse = !sort.reverse;">
+							价格
+						</th>
+						<th>
+							<sort-by onsort="onSort" sortdir="criteria.sortOrder" sortedby="criteria.sort" sortValue="createDate">
 								创建日期
-							</a>
+							</sort>
 						</th>
 						<th>
-							<a href="" ng-click="sort.predicate = 'lastUpdateDate'; sort.reverse = !sort.reverse;">
+							<sort-by onsort="onSort" sortdir="criteria.sortOrder" sortedby="criteria.sort" sortValue="lastUpdateDate">
 								修改日期
-							</a>
+							</sort>
 						</th>
 						<th colspan="3">
 								操作
@@ -60,7 +101,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr ng-repeat="transaction in transactions | filter:searchText | orderBy : sort.predicate : sort.reverse" class="table-list-anim">
+					<tr ng-repeat="transaction in transactions" class="table-list-anim">
 						<td>
 							{{transaction.item.name}}
 						</td>
@@ -68,10 +109,13 @@
 							{{transaction.quantity}}
 						</td>
 						<td>
-							{{transaction.createDate | date : "yyyy/MM/dd HH:mm"}}
+							${{transaction.quantity * transaction.item.price}}
 						</td>
 						<td>
-							{{transaction.lastUpdateDate | date : "yyyy/MM/dd HH:mm"}}
+							{{transaction.createDate | date : dateFormat}}
+						</td>
+						<td>
+							{{transaction.lastUpdateDate | date : dateFormat}}
 						</td>
 						<td>
 							<a href="" ng-click="edit(transaction)"><span class="glyphicon glyphicon-pencil"></span></a>
@@ -80,8 +124,23 @@
 							<a href="" ng-confirm-message="交易将会被删除！" ng-confirm-click="deleteTransaction(transaction)"><span class="glyphicon glyphicon-remove-sign"></span></a>
 						</td>
 					</tr>
+					<tr class="table-list-anim">
+						<td>
+							本页共计:
+						</td>
+						<td>
+							{{totalQuantity}}
+						</td>
+						<td>
+							${{totalPrice}}
+						</td>
+					</tr>
 				</tbody>
 			</table>
+
+			<div class="text-center">
+				<pagination total-items="totalElements" items-per-page="criteria.pageSize" ng-model="criteria.page" ng-change="find()" max-size="10" rotate="false"></pagination>
+			</div>
 
 		</div>
 	</div>

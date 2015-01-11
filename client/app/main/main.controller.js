@@ -2,17 +2,77 @@
 
 angular.module('itemManagementApp')
 
-.controller( 'MainCtrl', function ( $scope, $http, $modal, $route, MessageService ) {
+.controller( 'MainCtrl', function ( $scope, $http, $modal, $route, $timeout, MessageService ) {
 	
 	$scope.transactions = [];
-	$scope.sort = {
-		predicate : 'item.name',
-		reverse : false
+	$scope.dateFormat = 'yyyy/MM/dd HH:mm';
+	$scope.dateOptions = {
+		formatYear: 'yy',
+		startingDay: 1
+	};
+
+	// Initialize criteria.
+	if(!$scope.criteria) {
+		$scope.criteria = {};
+	}
+	if(!$scope.criteria.pageSize) {
+		$scope.criteria.pageSize = 10;
+	}
+	if(!$scope.criteria.sort) {
+		$scope.criteria.sort = 'createDate';
+		$scope.criteria.sortOrder = -1;
 	}
 
-	$http.get( '/api/transactions' ).success( function( transactions ) {
-		$scope.transactions = transactions;
-	});
+	$scope.find = function( page ) {
+
+		if( page ) {
+			$scope.criteria.page = page;	
+		}
+
+		$http.get( '/api/transactions', { params : $scope.criteria } )
+		.success( function( data ) {
+
+			$scope.totalElements = data.totalElements;
+			$scope.transactions = data.content;
+
+			// calculate totalAmount
+			$scope.totalPrice = 0;
+			$scope.totalQuantity = 0;
+
+			angular.forEach( $scope.transactions, function( transaction ) {
+				$scope.totalPrice += transaction.item.price * transaction.quantity;
+				$scope.totalQuantity += transaction.quantity;
+			});
+
+		})
+		.error( function( data) {
+			MessageService.showMessage( "无法载入数据", 'alert-danger' );
+		});
+
+	};
+
+	$scope.thresholdFind = function( page ) {
+
+		// cancel the current timeout
+		if( $scope.searchTimeout ) {
+			$timeout.cancel( $scope.searchTimeout );
+		}
+
+		$scope.searchTimeout = $timeout( function() {
+			$scope.find( page );
+		}, 300);
+
+	};
+
+	$scope.onSort = function(sortBy, sortDir) {
+
+		$scope.criteria.sort = sortBy;
+		$scope.criteria.sortOrder = sortDir;
+		$scope.find(1);
+
+	};
+
+	$scope.find(1);
 
 	$scope.edit = function( transaction ) {
 
@@ -60,6 +120,32 @@ angular.module('itemManagementApp')
 			});
 	};
 
+	$scope.openDatePicker = function( $event, property ) {
+
+		$event.preventDefault();
+		$event.stopPropagation();
+
+		$scope.startDateOpened = false;
+		$scope.endDateOpened = false;
+
+		$scope[property] = true;
+
+	};
+
+	$scope.shiftEndDate = function() {
+
+		var endDate = $scope.criteria.endDate;
+
+		if( endDate ) {
+
+			endDate.setHours(23);
+			endDate.setMinutes(59);
+			endDate.setSeconds(59);
+
+		}
+
+	};
+
 });
 
 angular.module( 'itemManagementApp' )
@@ -104,5 +190,20 @@ angular.module( 'itemManagementApp' )
 	$scope.setFormScope = function( scope ) {
 		$scope.formScope = scope;
 	};
+
+	$scope.filterParentItem = function() {
+		
+		return function( item ) {
+
+			// only allow parent to show
+			if( item.childItems && item.childItems.length > 0 ) {
+				return true;
+			}
+
+			return false;
+
+		};
+
+	}
 
 });
