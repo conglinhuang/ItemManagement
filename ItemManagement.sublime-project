@@ -1,0 +1,9 @@
+{
+	"folders":
+	[
+		{
+			"path": "/F/Projects/ItemManagement",
+			"folder_exclude_patterns" : ["node_modules"]
+		}
+	]
+}

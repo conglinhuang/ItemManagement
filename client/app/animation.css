@@ -1,0 +1,63 @@
+/* ng-repeat, ng-include, ng-swtich animation */
+
+.slide-list-anim.ng-enter,
+.slide-list-anim.ng-leave,
+.slide-list-anim.ng-move {
+	-webkit-transition: all linear 0.3s;
+	-moz-transition: all linear 0.3s;
+	-ms-transition: all linear 0.3s;
+	-o-transition: all linear 0.3s;
+	transition: all linear 0.3s;
+	position: relative;
+}
+
+.slide-list-anim.ng-enter {
+	left:-50px;
+	opacity:0;
+}
+.slide-list-anim.ng-enter.ng-enter-active {
+	left:0;
+	opacity:1;
+}
+
+.slide-list-anim.ng-leave {
+	top:0;
+	left:0;
+	height: 72px;
+	opacity:1;
+}
+.slide-list-anim.ng-leave.ng-leave-active {
+	top:-72px;
+	left:-50px;
+	height: 0px;
+	opacity:0;
+}
+
+.slide-list-anim.ng-move {
+	opacity:0.5;
+}
+.slide-list-anim.ng-move.ng-move-active {
+	opacity:1;
+}
+
+.table-list-anim.ng-enter,
+.table-list-anim.ng-leave,
+.table-list-anim.ng-move {
+	-webkit-transition: all linear 0.3s;
+	-moz-transition: all linear 0.3s;
+	-ms-transition: all linear 0.3s;
+	-o-transition: all linear 0.3s;
+	transition: all linear 0.3s;
+	position: relative;
+}
+
+.table-list-anim.ng-enter {
+	opacity:0;
+}
+.table-list-anim.ng-enter.ng-enter-active {
+	opacity:1;
+}
+
+.table-list-anim.ng-leave td {
+	display: none;
+}

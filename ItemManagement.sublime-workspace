@@ -1,0 +1,684 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"modal",
+				"modalInstance"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "Gruntfile.js",
+			"settings":
+			{
+				"buffer_size": 15194,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "client/index.html",
+			"settings":
+			{
+				"buffer_size": 3771,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "client/app/main/main.html",
+			"settings":
+			{
+				"buffer_size": 675,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "client/components/navbar/navbar.controller.js",
+			"settings":
+			{
+				"buffer_size": 384,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "client/components/navbar/navbar.html",
+			"settings":
+			{
+				"buffer_size": 781,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "client/app/item/item.html",
+			"settings":
+			{
+				"buffer_size": 774,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "client/app/item/item.controller.js",
+			"settings":
+			{
+				"buffer_size": 1525,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "bower.json",
+			"settings":
+			{
+				"buffer_size": 559,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "client/app/app.js",
+			"settings":
+			{
+				"buffer_size": 295,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "client/components/message/message.controller.js",
+			"settings":
+			{
+				"buffer_size": 301,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "client/components/message/message.service.js",
+			"settings":
+			{
+				"buffer_size": 937,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/F/Projects/ItemManagement/Example/scripts/services/MessageService.js",
+		"/F/Projects/ItemManagement/client/app/main/main.css",
+		"/F/Projects/ItemManagement/client/app/app.js",
+		"/F/Projects/ItemManagement/Example/styles/animation.css",
+		"/F/Projects/ItemManagement/Example/scripts/app.js",
+		"/C/Games/The Sims 4/Game/Bin/3dmgame.ini",
+		"/C/Games/Steam Library/SteamApps/common/Skyrim/enbseries/effect.txt.ini",
+		"/C/Games/Steam Library/SteamApps/common/Skyrim/enbseries/enbeffect.fx.ini",
+		"/C/Users/John/AppData/Local/Temp/7zO8FA67A51/Readme.txt",
+		"/C/Users/John/AppData/Local/Temp/7zO0DA13178/House.txt",
+		"/C/Users/John/AppData/Local/Temp/7zO0DA3E188/Installation.txt",
+		"/Q/3DMGAME-Endless.Legend.Update.v1.0.7-RELOADED/说明.txt",
+		"/C/Games/Endless Legend/steam_api.ini",
+		"/C/Users/John/AppData/Local/Temp/WPDNSE/SID-{10001,,12187213824}/justin.txt",
+		"/H/Google Drive/My Documents/KSSN.txt",
+		"/H/Google Drive/My Documents/Black Desert/GameOption.txt",
+		"/Q/NBA2K15/说明.txt",
+		"/Q/NBA2K15/3DMGAME.ini",
+		"/C/Users/John/Desktop/mongod.cfg",
+		"/C/Users/John/AppData/Local/Temp/7zO8EBD5E7C/enblocal.ini",
+		"/Q/Skyrim Mods/地址.txt",
+		"/Q/Skyrim Mods/文本.txt",
+		"/C/Games/Steam Library/SteamApps/common/Skyrim/enblocal.ini",
+		"/H/Google Drive/My Documents/My Games/Skyrim/SkyrimPrefs.ini",
+		"/C/Users/John/AppData/Local/Temp/7zO441D679E/desc.txt",
+		"/C/Users/John/AppData/Local/Temp/7zO441B4DAF/desc.txt",
+		"/C/Games/Steam Library/SteamApps/common/Skyrim/enbseries.ini",
+		"/C/Users/John/AppData/Local/Temp/7zO812DBCCA/------INSTALLATION------.txt",
+		"/C/Users/John/AppData/Local/Temp/7zO8EBC6B9B/enbseries.ini",
+		"/C/Users/John/AppData/Local/Temp/7zOC294B944/------INSTALLATION------.txt",
+		"/C/Games/Steam Library/SteamApps/common/Skyrim/DataFiles.txt",
+		"/C/Users/John/AppData/Local/Temp/7zO85F7BA18/README.txt",
+		"/C/Users/John/AppData/Local/Temp/7zO85FD6DF7/effect.txt.ini",
+		"/C/Users/John/AppData/Local/Temp/7zO85F056B7/README.txt",
+		"/C/Users/John/AppData/Local/Temp/7zOC40E0B30/effect.txt.ini",
+		"/C/Users/John/AppData/Local/Temp/7zOC401248F/effect.txt.ini",
+		"/C/Users/John/AppData/Local/Temp/7zOC407A88F/README.txt",
+		"/C/Users/John/AppData/Local/Temp/7zOC9B81F94/readme.txt",
+		"/H/Google 云端硬盘/My Documents/名字",
+		"/H/Tempa/password.txt",
+		"/C/Users/John/Desktop/优爸妈信息.txt",
+		"/C/Users/John/AppData/Local/Temp/7zOCD31348F/readme.txt",
+		"/C/Users/John/AppData/Local/Temp/7zO4AE6BF87/Q017视频版1.txt",
+		"/C/Users/John/AppData/Local/Temp/7zO4AE811F7/Q017视频版2.txt",
+		"/C/Users/John/AppData/Local/Temp/7zO4AE1C478/Q017视频版1.txt",
+		"/C/Users/John/AppData/Local/Temp/7zO01EB8698/Q017视频版2.txt",
+		"/C/Users/John/AppData/Local/Temp/7zOC3BEC009/说明.txt",
+		"/H/Google Drive/My Documents/密码.txt",
+		"/C/Users/John/AppData/Local/Temp/7zO83C84DBE/说明.txt",
+		"/H/Google Drive/My Documents/My Games/Sid Meier's Civilization 5/config.ini",
+		"/C/Users/John/Desktop/items.txt",
+		"/Q/3DMGAME-Middle.Earth.Shadow.of.Mordor-CODEX/说明.txt",
+		"/C/Users/John/AppData/Local/Temp/7zOC40711EE/Insomnia Optionals README.txt",
+		"/C/Users/John/AppData/Local/Temp/7zOC40E5B1F/README.txt",
+		"/C/Games/The Sims 4/说明.txt",
+		"/Q/3DMGAME-The.Sims.4.Digital.Deluxe.Edition-3DM/The Sims 4/说明.txt",
+		"/C/Users/John/AppData/Local/Temp/7zO8D995425/Q017视频版1.txt",
+		"/C/Users/John/AppData/Local/Temp/7zO8D919845/Q017视频版2.txt",
+		"/H/Google Drive/My Documents/Witcher 2/Config/lang/EN.ini",
+		"/H/Google Drive/My Documents/Witcher 2/UserContent1/fcr2_a0/config.ini",
+		"/C/Users/John/AppData/Local/Temp/7zO8B9DFD9E/Geralt Does Weight Watchers READ ME.txt",
+		"/C/Users/John/AppData/Local/Temp/7zO8B9496AE/Geralt Does Weight Watchers READ ME.txt",
+		"/C/Users/John/AppData/Local/Temp/7zO89704B3B/方法.txt",
+		"/C/Users/John/AppData/Local/Temp/7zO4B80C674/下载说明.txt",
+		"/C/Users/John/AppData/Local/Temp/7zOC9B73DB8/README.txt",
+		"/C/Users/John/AppData/Local/Temp/7zOC9B9A658/effect.txt.ini",
+		"/C/Games/Steam Library/SteamApps/common/Skyrim/Data/Interface/fontconfig.txt",
+		"/C/Users/John/AppData/Local/Temp/7zO8418A4FA/SexLabAroused.txt",
+		"/C/Users/John/AppData/Local/Temp/7zO447B0A4B/SexLab-Hormones.txt",
+		"/Q/Skyrim Mods/链接.txt",
+		"/Q/Skyrim Mods/2.5下载地址.txt",
+		"/C/Users/John/AppData/Local/Temp/7zO89465AEE/readme_tesval.txt",
+		"/C/Users/John/AppData/Local/Temp/7zOCFDDF634/LoS - readme.txt",
+		"/C/Users/John/AppData/Local/Temp/7zO06785975/readme.txt",
+		"/Q/Skyrim Mods/下载地址.txt",
+		"/Q/Skyrim Mods/31b.txt",
+		"/C/Games/Steam Library/SteamApps/common/Skyrim/Data/Meshes/ling/fs/enbseries.ini",
+		"/C/Users/John/AppData/Local/Temp/7zOC38576D7/README_NobleWeddingDress.txt",
+		"/C/Users/John/AppData/Local/Temp/7zO094EFA2B/readme.txt",
+		"/C/Users/John/AppData/Local/Temp/7zO0A83D138/enblocal.ini",
+		"/C/Users/John/AppData/Local/Temp/7zO4E09845D/eye normal map readme.txt",
+		"/Q/Skyrim Mods/百度网盘.txt",
+		"/H/Google 云端硬盘/My Documents/rs5_camera.ini",
+		"/H/Google 云端硬盘/My Documents/raphidshare account.txt",
+		"/H/Google 云端硬盘/My Documents/Dragon Age 2 - da2_prc_seb.log",
+		"/H/Google 云端硬盘/My Documents/Diablo III/D3Prefs.txt",
+		"/C/Users/John/Desktop/d3.txt",
+		"/E/temp.txt",
+		"/C/Users/John/Desktop/新建文本文档.txt",
+		"/C/Games/Steam Library/SteamApps/common/Skyrim/Data/SKSE/skse.ini",
+		"/H/Google 云端硬盘/My Documents/My Games/Skyrim/Skyrim.ini",
+		"/C/Users/John/AppData/Local/Temp/7zO8739900C/effect.txt.ini",
+		"/C/Users/John/AppData/Local/Temp/7zO873535EC/effect.txt.ini",
+		"/C/Users/John/AppData/Local/Temp/7zO8731617D/Insomnia Optionals README.txt",
+		"/C/Games/Steam Library/SteamApps/common/Skyrim/enbseries/enblens.fx.ini",
+		"/C/Users/John/AppData/Local/Temp/7zO873E405E/effect.txt.ini",
+		"/C/Users/John/AppData/Local/Temp/7zO0A89E7F7/enblocal.ini",
+		"/C/Users/John/AppData/Local/Temp/7zO0A8B87D8/enblocal.ini",
+		"/C/Users/John/AppData/Local/Temp/7zO87332CED/effect.txt.ini",
+		"/C/Users/John/AppData/Local/Temp/7zO8737526C/effect.txt.ini",
+		"/C/Users/John/AppData/Local/Temp/7zO873DDC8B/README.txt",
+		"/C/Users/John/AppData/Local/Temp/7zOC1624A50/INSTALL INSTRUCTIONS.txt",
+		"/C/Users/John/AppData/Local/Temp/7zO4C3ECE41/Performance Plus README.txt",
+		"/C/Games/Steam Library/SteamApps/common/Skyrim/HiAlgoBoost.ini",
+		"/C/Users/John/AppData/Local/Temp/7zO05EB45EF/HiAlgo_ReadMe.txt",
+		"/C/Games/Steam Library/SteamApps/common/Skyrim/effect.txt",
+		"/C/Games/Steam Library/SteamApps/common/Skyrim/SexLab.log",
+		"/C/Games/Steam Library/SteamApps/common/Skyrim/enbseries.ini.bak",
+		"/C/Users/John/AppData/Local/Temp/7zO8F99D4DC/Only choose one.txt",
+		"/C/Users/John/AppData/Local/Temp/7zO87513935/ReadMeSexyFemArmor.txt",
+		"/H/Google 云端硬盘/My Documents/My Games/Skyrim/backup 2013.04.04/SkyrimPrefs.ini",
+		"/H/Google 云端硬盘/My Documents/My Games/Skyrim/SkyrimPrefs.ini",
+		"/H/Google 云端硬盘/My Documents/My Games/Skyrim/backup 2013.04.04/Skyrim.ini",
+		"/C/Users/John/AppData/Roaming/Sublime Text 2/Packages/User/Default (Windows).sublime-keymap",
+		"/C/Users/John/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/C/Users/John/AppData/Roaming/Sublime Text 2/Packages/Default/Preferences.sublime-settings"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"  ",
+			"txaa",
+			"yun",
+			"TXAA",
+			"EdgeAA ",
+			"command"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"	"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 10,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "Gruntfile.js",
+					"settings":
+					{
+						"buffer_size": 15194,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								961,
+								961
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "client/index.html",
+					"settings":
+					{
+						"buffer_size": 3771,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								590,
+								590
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "client/app/main/main.html",
+					"settings":
+					{
+						"buffer_size": 675,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								581,
+								581
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "client/components/navbar/navbar.controller.js",
+					"settings":
+					{
+						"buffer_size": 384,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								258,
+								258
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "client/components/navbar/navbar.html",
+					"settings":
+					{
+						"buffer_size": 781,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								773,
+								773
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "client/app/item/item.html",
+					"settings":
+					{
+						"buffer_size": 774,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								96,
+								96
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "client/app/item/item.controller.js",
+					"settings":
+					{
+						"buffer_size": 1525,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								32,
+								49
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "bower.json",
+					"settings":
+					{
+						"buffer_size": 559,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								404,
+								404
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "client/app/app.js",
+					"settings":
+					{
+						"buffer_size": 295,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								295,
+								295
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "client/components/message/message.controller.js",
+					"settings":
+					{
+						"buffer_size": 301,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								291,
+								291
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "client/components/message/message.service.js",
+					"settings":
+					{
+						"buffer_size": 937,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"message.ser",
+				"client/components/message/message.service.js"
+			],
+			[
+				"messa",
+				"client/components/message/message.controller.js"
+			],
+			[
+				"bower",
+				"bower.json"
+			],
+			[
+				"app.js",
+				"client/app/app.js"
+			],
+			[
+				"bower.",
+				"bower.json"
+			],
+			[
+				"app",
+				"Example/scripts/app.js"
+			],
+			[
+				"app.",
+				"client/app/app.js"
+			],
+			[
+				"anima",
+				"Example/styles/animation.css"
+			],
+			[
+				"grunfile",
+				"Gruntfile.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 291.0,
+	"status_bar_visible": true
+}

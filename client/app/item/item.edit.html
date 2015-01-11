@@ -1,0 +1,63 @@
+<form name="form" ng-submit="save()" ng-init="setFormScope(this)" novalidate>
+
+	<div class="modal-header">
+		<button type="button" class="close" ng-click="cancel()" aria-hidden="true">&times;</button>
+		<h4 class="modal-title">
+			<i class="fa fa-user"></i> {{item.name}}
+		</h4>
+	</div>
+
+	<div class="modal-body">
+
+		<div class="form-group required" ng-class="{ 'has-error' : form.name.$invalid && !form.name.$pristine }">
+			<label>名称</label>
+			<input type="text" name="name" class="form-control" ng-model="item.name" ng-upper-case required ng-autofocus>
+			<p ng-show="form.name.$invalid && !form.name.$pristine" class="help-block">名称不可以为空</p>
+		</div>
+		
+		<div class="form-group required" ng-class="{ 'has-error' : form.price.$invalid && !form.price.$pristine }">
+			<label>单价</label>
+			<div class="input-group">
+				<div class="input-group-addon">$</div>
+				<input type="text" name="price" class="form-control" ng-model="item.price" currency-mask required>
+			</div>
+			<p ng-show="form.price.$invalid && !form.price.$pristine" class="help-block">单价不可以为空</p>
+		</div>
+
+		<div class="form-group required" ng-class="{ 'has-error' : form.quantity.$invalid && !form.quantity.$pristine }">
+			<label>数量</label>
+			<input type="number" min="0" name="quantity" class="form-control" ng-model="item.quantity" required>
+			<p ng-show="form.quantity.$invalid && !form.quantity.$pristine" class="help-block">数量不可以为空</p>
+		</div>
+
+		<div class="form-group">
+			<label>子物品</label>
+			<input type ="text" ng-model="childItem" placeholder="搜索..." typeahead="childItem as childItem.name for childItem in items | filter:{name:$viewValue} | limitTo:8 | filter:filterSelectedChild()" class="form-control" typeahead-on-select="selectChildItem( $item )">
+			</br>
+			<ul class="list-group" ng-repeat="childItem in item.childItems">
+				<li class="list-group-item">
+
+					<div class="row">
+						<div class="col-md-3 text-left">
+							{{childItem.item.name}}
+						</div>
+						<div class="col-md-6 text-right">
+							<input type="number" min="0" name="quantity" class="form-control list-input" ng-model="childItem.quantity">
+						</div>
+						<div class="col-md-3 text-right">
+							<a href="" ng-confirm-message="{{childItem.name}}将会从子物品中删除！" ng-confirm-click="deleteChildItem(childItem)"><span class="fa fa-remove fa-2x"></span></a>
+						</div>
+					</div>
+
+				</li>
+			</ul>
+		</div>
+		
+	</div>
+
+	<div class="modal-footer">
+		<button type="button" ng-click="cancel()" class="btn btn-default">取消</button>
+		<button type="submit" ng-disabled="form.$invalid" btn-loading="saving" loading-text="保存中..." class="btn btn-primary">保存</button>
+	</div>
+
+</form>
