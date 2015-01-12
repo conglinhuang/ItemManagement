@@ -48,6 +48,16 @@
 							</a>
 						</th>
 						<th>
+							<a href="" ng-click="sort.predicate = 'weight'; sort.reverse = !sort.reverse;">
+								重量
+							</a>
+						</th>
+						<th>
+							<a href="" ng-click="sort.predicate = 'note'; sort.reverse = !sort.reverse;">
+								备注
+							</a>
+						</th>
+						<th>
 							<a href="" ng-click="sort.predicate = 'lastUpdateDate'; sort.reverse = !sort.reverse;">
 								修改日期
 							</a>
@@ -72,6 +82,12 @@
 						</td>
 						<td>
 							{{item.quantity}}
+						</td>
+						<td>
+							{{item.weight}}
+						</td>
+						<td>
+							{{item.note}}
 						</td>
 						<td>
 							{{item.lastUpdateDate | date : "yyyy/MM/dd HH:mm"}}
