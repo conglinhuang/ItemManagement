@@ -76,13 +76,18 @@ angular.module( 'itemManagementApp' )
 .controller( 'ItemCtrlEdit', function ( $scope, $http, $modalInstance, item, items, MessageService ) {
 	
 	$scope.item = item ? item : {};
-	$scope.items = angular.copy( items );
 
-	// remove this item
-	var index = items.indexOf( item );
-	if( index > 0) {
-		$scope.items.splice( index , 1 );
-	};
+	if( items ) {
+
+		$scope.items = angular.copy( items );
+
+		// remove this item
+		var index = items.indexOf( item );
+		if( index > 0) {
+			$scope.items.splice( index , 1 );
+		};
+
+	}
 
 	$scope.save = function() {
 
