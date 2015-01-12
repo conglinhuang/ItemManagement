@@ -4,6 +4,34 @@
 		"selected_items":
 		[
 			[
+				"mar",
+				"margin-top"
+			],
+			[
+				"it",
+				"itemCount"
+			],
+			[
+				"pagin",
+				"paginatedResults"
+			],
+			[
+				"child",
+				"childItems"
+			],
+			[
+				"create",
+				"createDate"
+			],
+			[
+				"in",
+				"inline"
+			],
+			[
+				"Item",
+				"ItemSchema"
+			],
+			[
 				"modal",
 				"modalInstance"
 			]
@@ -11,6 +39,38 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "client/app/main/main.html",
+			"settings":
+			{
+				"buffer_size": 4792,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "client/app/main/main.controller.js",
+			"settings":
+			{
+				"buffer_size": 4221,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "server/api/transaction/transaction.controller.js",
+			"settings":
+			{
+				"buffer_size": 4183,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "client/app/app.css",
+			"settings":
+			{
+				"buffer_size": 4643,
+				"line_ending": "Unix"
+			}
+		},
 		{
 			"file": "Gruntfile.js",
 			"settings":
@@ -20,42 +80,26 @@
 			}
 		},
 		{
-			"file": "client/index.html",
+			"file": "server/api/item/item.model.js",
 			"settings":
 			{
-				"buffer_size": 3771,
+				"buffer_size": 467,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "client/app/main/main.html",
+			"file": "client/app/item/item.edit.html",
 			"settings":
 			{
-				"buffer_size": 675,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "client/components/navbar/navbar.controller.js",
-			"settings":
-			{
-				"buffer_size": 384,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "client/components/navbar/navbar.html",
-			"settings":
-			{
-				"buffer_size": 781,
-				"line_ending": "Unix"
+				"buffer_size": 3092,
+				"line_ending": "Windows"
 			}
 		},
 		{
 			"file": "client/app/item/item.html",
 			"settings":
 			{
-				"buffer_size": 774,
+				"buffer_size": 2955,
 				"line_ending": "Unix"
 			}
 		},
@@ -63,39 +107,7 @@
 			"file": "client/app/item/item.controller.js",
 			"settings":
 			{
-				"buffer_size": 1525,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "bower.json",
-			"settings":
-			{
-				"buffer_size": 559,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "client/app/app.js",
-			"settings":
-			{
-				"buffer_size": 295,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "client/components/message/message.controller.js",
-			"settings":
-			{
-				"buffer_size": 301,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "client/components/message/message.service.js",
-			"settings":
-			{
-				"buffer_size": 937,
+				"buffer_size": 3266,
 				"line_ending": "Unix"
 			}
 		}
@@ -124,11 +136,60 @@
 	},
 	"file_history":
 	[
-		"/F/Projects/ItemManagement/Example/scripts/services/MessageService.js",
-		"/F/Projects/ItemManagement/client/app/main/main.css",
-		"/F/Projects/ItemManagement/client/app/app.js",
-		"/F/Projects/ItemManagement/Example/styles/animation.css",
+		"/F/Projects/ItemManagement/client/app/main/main.controller.js",
+		"/F/Projects/ItemManagement/server/api/transaction/transaction.controller.js",
+		"/F/Projects/ItemManagement/client/app/main/transaction.edit.html",
+		"/F/Projects/ItemManagement/client/app/main/main.html",
+		"/F/Projects/ItemManagement/client/app/item/item.html",
+		"/F/Projects/ItemManagement/client/app/item/item.controller.js",
+		"/F/Projects/ItemManagement/package.json",
+		"/F/Projects/ItemManagement/server/api/transaction/transaction.model.js",
+		"/F/Projects/ItemManagement/Example/views/retailer/list.html",
+		"/F/Projects/ItemManagement/Example/scripts/controllers/ParentPaginatedListController.js",
+		"/F/Projects/ItemManagement/server/api/item/item.controller.js",
+		"/F/Projects/ItemManagement/client/app/item/item.edit.html",
+		"/F/Projects/ItemManagement/client/app/autofocus/autofocus.directive.js",
+		"/F/Projects/ItemManagement/client/app/uppercase/uppercase.directive.js",
+		"/F/Projects/ItemManagement/client/app/app.css",
+		"/F/Projects/ItemManagement/Example/scripts/directives/SortBy.js",
+		"/F/Projects/ItemManagement/client/app/sortby/sortby.directive.js",
+		"/F/Projects/ItemManagement/client/app/sortby/sortby.directive.html",
+		"/F/Projects/ItemManagement/Example/scripts/directives/Autofocus.js",
+		"/F/Projects/ItemManagement/Example/views/retailer/edit.html",
+		"/F/Projects/ItemManagement/Example/scripts/controllers/SellerListController.js",
+		"/F/Projects/ItemManagement/Example/scripts/controllers/RetailerController.js",
+		"/F/Projects/ItemManagement/Example/scripts/controllers/WholesalerController.js",
+		"/F/Projects/ItemManagement/client/components/confirm/confirm.controller.js",
 		"/F/Projects/ItemManagement/Example/scripts/app.js",
+		"/F/Projects/ItemManagement/Example/scripts/directives/ConfirmClick.js",
+		"/F/Projects/ItemManagement/client/app/confirm-click/confirm-click.directive.js",
+		"/F/Projects/ItemManagement/client/index.html",
+		"/F/Projects/ItemManagement/client/components/confirm/confirm.html",
+		"/F/Projects/ItemManagement/client/app/main/main.controller.spec.js",
+		"/F/Projects/ItemManagement/server/config/seed.js",
+		"/F/Projects/ItemManagement/server/routes.js",
+		"/F/Projects/ItemManagement/client/app/loading-button/loading-button.directive.js",
+		"/F/Projects/ItemManagement/Example/views/wholesaler/edit.html",
+		"/F/Projects/ItemManagement/server/api/item/item.model.js",
+		"/F/Projects/ItemManagement/client/app/item/item.js",
+		"/F/Projects/ItemManagement/client/app/item/item.css",
+		"/F/Projects/ItemManagement/client/app/main/main.css",
+		"/F/Projects/ItemManagement/server/api/transaction/index.js",
+		"/F/Projects/ItemManagement/Gruntfile.js",
+		"/F/Projects/ItemManagement/bower.json",
+		"/F/Projects/ItemManagement/client/app/app.js",
+		"/F/Projects/ItemManagement/client/components/message/message.controller.js",
+		"/F/Projects/ItemManagement/client/components/message/message.service.js",
+		"/F/Projects/ItemManagement/Example/styles/style.css",
+		"/F/Projects/ItemManagement/server/api/item/index.js",
+		"/F/Projects/ItemManagement/client/app/currency-mask/currency-mask.directive.js",
+		"/F/Projects/ItemManagement/Example/index.html",
+		"/F/Projects/ItemManagement/Example/scripts/controllers/ParentListController.js",
+		"/F/Projects/ItemManagement/client/components/navbar/navbar.controller.js",
+		"/F/Projects/ItemManagement/client/components/navbar/navbar.html",
+		"/F/Projects/ItemManagement/ItemManagement.sublime-project",
+		"/F/Projects/ItemManagement/Example/scripts/services/MessageService.js",
+		"/F/Projects/ItemManagement/Example/styles/animation.css",
 		"/C/Games/The Sims 4/Game/Bin/3dmgame.ini",
 		"/C/Games/Steam Library/SteamApps/common/Skyrim/enbseries/effect.txt.ini",
 		"/C/Games/Steam Library/SteamApps/common/Skyrim/enbseries/enbeffect.fx.ini",
@@ -202,44 +263,7 @@
 		"/Q/Skyrim Mods/31b.txt",
 		"/C/Games/Steam Library/SteamApps/common/Skyrim/Data/Meshes/ling/fs/enbseries.ini",
 		"/C/Users/John/AppData/Local/Temp/7zOC38576D7/README_NobleWeddingDress.txt",
-		"/C/Users/John/AppData/Local/Temp/7zO094EFA2B/readme.txt",
-		"/C/Users/John/AppData/Local/Temp/7zO0A83D138/enblocal.ini",
-		"/C/Users/John/AppData/Local/Temp/7zO4E09845D/eye normal map readme.txt",
-		"/Q/Skyrim Mods/百度网盘.txt",
-		"/H/Google 云端硬盘/My Documents/rs5_camera.ini",
-		"/H/Google 云端硬盘/My Documents/raphidshare account.txt",
-		"/H/Google 云端硬盘/My Documents/Dragon Age 2 - da2_prc_seb.log",
-		"/H/Google 云端硬盘/My Documents/Diablo III/D3Prefs.txt",
-		"/C/Users/John/Desktop/d3.txt",
-		"/E/temp.txt",
-		"/C/Users/John/Desktop/新建文本文档.txt",
-		"/C/Games/Steam Library/SteamApps/common/Skyrim/Data/SKSE/skse.ini",
-		"/H/Google 云端硬盘/My Documents/My Games/Skyrim/Skyrim.ini",
-		"/C/Users/John/AppData/Local/Temp/7zO8739900C/effect.txt.ini",
-		"/C/Users/John/AppData/Local/Temp/7zO873535EC/effect.txt.ini",
-		"/C/Users/John/AppData/Local/Temp/7zO8731617D/Insomnia Optionals README.txt",
-		"/C/Games/Steam Library/SteamApps/common/Skyrim/enbseries/enblens.fx.ini",
-		"/C/Users/John/AppData/Local/Temp/7zO873E405E/effect.txt.ini",
-		"/C/Users/John/AppData/Local/Temp/7zO0A89E7F7/enblocal.ini",
-		"/C/Users/John/AppData/Local/Temp/7zO0A8B87D8/enblocal.ini",
-		"/C/Users/John/AppData/Local/Temp/7zO87332CED/effect.txt.ini",
-		"/C/Users/John/AppData/Local/Temp/7zO8737526C/effect.txt.ini",
-		"/C/Users/John/AppData/Local/Temp/7zO873DDC8B/README.txt",
-		"/C/Users/John/AppData/Local/Temp/7zOC1624A50/INSTALL INSTRUCTIONS.txt",
-		"/C/Users/John/AppData/Local/Temp/7zO4C3ECE41/Performance Plus README.txt",
-		"/C/Games/Steam Library/SteamApps/common/Skyrim/HiAlgoBoost.ini",
-		"/C/Users/John/AppData/Local/Temp/7zO05EB45EF/HiAlgo_ReadMe.txt",
-		"/C/Games/Steam Library/SteamApps/common/Skyrim/effect.txt",
-		"/C/Games/Steam Library/SteamApps/common/Skyrim/SexLab.log",
-		"/C/Games/Steam Library/SteamApps/common/Skyrim/enbseries.ini.bak",
-		"/C/Users/John/AppData/Local/Temp/7zO8F99D4DC/Only choose one.txt",
-		"/C/Users/John/AppData/Local/Temp/7zO87513935/ReadMeSexyFemArmor.txt",
-		"/H/Google 云端硬盘/My Documents/My Games/Skyrim/backup 2013.04.04/SkyrimPrefs.ini",
-		"/H/Google 云端硬盘/My Documents/My Games/Skyrim/SkyrimPrefs.ini",
-		"/H/Google 云端硬盘/My Documents/My Games/Skyrim/backup 2013.04.04/Skyrim.ini",
-		"/C/Users/John/AppData/Roaming/Sublime Text 2/Packages/User/Default (Windows).sublime-keymap",
-		"/C/Users/John/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
-		"/C/Users/John/AppData/Roaming/Sublime Text 2/Packages/Default/Preferences.sublime-settings"
+		"/C/Users/John/AppData/Local/Temp/7zO094EFA2B/readme.txt"
 	],
 	"find":
 	{
@@ -247,16 +271,38 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 90.0,
 		"where_history":
 		[
+			"F:\\Projects\\ItemManagement\\Example",
+			"F:\\Projects\\ItemManagement"
 		]
 	},
 	"find_state":
 	{
-		"case_sensitive": false,
+		"case_sensitive": true,
 		"find_history":
 		[
+			"  ",
+			"filterCriteria.sortedBy",
+			"filterCriteria.sortDir",
+			"filterCriteria",
+			"  ",
+			"\"",
+			"    ",
+			"viewValue",
+			"  ",
+			"item",
+			"  ",
+			"item",
+			"items",
+			"  ",
+			"data-",
+			"    ",
+			"thing",
+			"confirm",
+			"data-ng",
+			"    ",
 			"  ",
 			"txaa",
 			"yun",
@@ -270,6 +316,20 @@
 		"regex": false,
 		"replace_history":
 		[
+			"	",
+			"criteria.sort",
+			"criteria.sortOrder",
+			"	",
+			"'",
+			"	",
+			"transaction",
+			"	",
+			"transaction",
+			"transactions",
+			"	",
+			"",
+			"	",
+			"ng",
 			"	"
 		],
 		"reverse": false,
@@ -281,11 +341,119 @@
 	"groups":
 	[
 		{
-			"selected": 10,
+			"selected": 6,
 			"sheets":
 			[
 				{
 					"buffer": 0,
+					"file": "client/app/main/main.html",
+					"settings":
+					{
+						"buffer_size": 4792,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3496,
+								3496
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1388.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "client/app/main/main.controller.js",
+					"settings":
+					{
+						"buffer_size": 4221,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								621,
+								621
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 54.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "server/api/transaction/transaction.controller.js",
+					"settings":
+					{
+						"buffer_size": 4183,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								574,
+								574
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2268.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "client/app/app.css",
+					"settings":
+					{
+						"buffer_size": 4643,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4557,
+								4557
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 3996.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
 					"file": "Gruntfile.js",
 					"settings":
 					{
@@ -296,8 +464,8 @@
 						"selection":
 						[
 							[
-								961,
-								961
+								13350,
+								13350
 							]
 						],
 						"settings":
@@ -307,142 +475,31 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "client/index.html",
-					"settings":
-					{
-						"buffer_size": 3771,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								590,
-								590
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "client/app/main/main.html",
-					"settings":
-					{
-						"buffer_size": 675,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								581,
-								581
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "client/components/navbar/navbar.controller.js",
-					"settings":
-					{
-						"buffer_size": 384,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								258,
-								258
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "client/components/navbar/navbar.html",
-					"settings":
-					{
-						"buffer_size": 781,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								773,
-								773
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 8968.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 5,
-					"file": "client/app/item/item.html",
+					"file": "server/api/item/item.model.js",
 					"settings":
 					{
-						"buffer_size": 774,
+						"buffer_size": 467,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								96,
-								96
+								326,
+								326
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.tmLanguage"
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -452,72 +509,72 @@
 				},
 				{
 					"buffer": 6,
-					"file": "client/app/item/item.controller.js",
+					"file": "client/app/item/item.edit.html",
 					"settings":
 					{
-						"buffer_size": 1525,
+						"buffer_size": 3092,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								32,
-								49
+								1453,
+								1453
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 162.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 7,
-					"file": "bower.json",
+					"file": "client/app/item/item.html",
 					"settings":
 					{
-						"buffer_size": 559,
+						"buffer_size": 2955,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								404,
-								404
+								1743,
+								1743
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 864.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 8,
-					"file": "client/app/app.js",
+					"file": "client/app/item/item.controller.js",
 					"settings":
 					{
-						"buffer_size": 295,
+						"buffer_size": 3266,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								295,
-								295
+								1015,
+								1015
 							]
 						],
 						"settings":
@@ -526,60 +583,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "client/components/message/message.controller.js",
-					"settings":
-					{
-						"buffer_size": 301,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								291,
-								291
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "client/components/message/message.service.js",
-					"settings":
-					{
-						"buffer_size": 937,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 594.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -629,6 +633,94 @@
 		"selected_items":
 		[
 			[
+				"grunfile",
+				"Gruntfile.js"
+			],
+			[
+				"app.css",
+				"client/app/app.css"
+			],
+			[
+				"list",
+				"Example/views/retailer/list.html"
+			],
+			[
+				"sort",
+				"Example/scripts/directives/SortBy.js"
+			],
+			[
+				"auto",
+				"Example/scripts/directives/Autofocus.js"
+			],
+			[
+				"edit",
+				"Example/views/retailer/edit.html"
+			],
+			[
+				"parentpaginate",
+				"Example/scripts/controllers/ParentPaginatedListController.js"
+			],
+			[
+				"paginated",
+				"Example/scripts/controllers/ParentPaginatedListController.js"
+			],
+			[
+				"sellerlist",
+				"Example/scripts/controllers/SellerListController.js"
+			],
+			[
+				"retailer",
+				"Example/scripts/controllers/RetailerController.js"
+			],
+			[
+				"wholesaler",
+				"Example/scripts/controllers/WholesalerController.js"
+			],
+			[
+				"item.h",
+				"client/app/item/item.html"
+			],
+			[
+				"item.con",
+				"client/app/item/item.controller.js"
+			],
+			[
+				"item.contro",
+				"client/app/item/item.controller.js"
+			],
+			[
+				"parentlist",
+				"Example/scripts/controllers/ParentListController.js"
+			],
+			[
+				"inde.html",
+				"Example/index.html"
+			],
+			[
+				"item.edit",
+				"client/app/item/item.edit.html"
+			],
+			[
+				"list.html",
+				"Example/views/retailer/list.html"
+			],
+			[
+				"style",
+				"Example/styles/style.css"
+			],
+			[
+				"item.css",
+				"client/app/item/item.css"
+			],
+			[
+				"main.cs",
+				"client/app/main/main.css"
+			],
+			[
+				"main.css",
+				"client/app/main/main.css"
+			],
+			[
 				"message.ser",
 				"client/components/message/message.service.js"
 			],
@@ -659,10 +751,6 @@
 			[
 				"anima",
 				"Example/styles/animation.css"
-			],
-			[
-				"grunfile",
-				"Gruntfile.js"
 			]
 		],
 		"width": 0.0
