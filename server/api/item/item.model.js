@@ -17,7 +17,7 @@ var ItemSchema = new Schema({
 	quantity: Number,
 	price: Number,
 	lowQuantity : Number,
-	weight : Number,
+	weight : String,
 	note : String,
 	createDate: Date,
 	lastUpdateDate: Date,
