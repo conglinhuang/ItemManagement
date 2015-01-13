@@ -246,5 +246,17 @@
 }
 
 .low-quantity {
-	color : red;
+	color: red;
+}
+
+.add {
+	color: #5cb85c;
+}
+
+.sell {
+	color: #428bca;
+}
+
+.col-md-2-5 {
+	width : 20.83333%;
 }

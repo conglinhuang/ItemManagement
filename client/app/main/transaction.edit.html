@@ -11,7 +11,7 @@
 
 		<div class="form-group required" ng-class="{ 'has-error' : form.item.$invalid && !form.item.$pristine }">
 			<label>物品</label>
-			<input type ="text" name="item" ng-model="transaction.item" placeholder="搜索..." typeahead="item as item.name for item in items | filter:filterParentItem() | filter:{name:$viewValue} | limitTo:8" class="form-control" required ng-autofocus>
+			<input type ="text" name="item" ng-model="transaction.item" placeholder="搜索..." ng-disabled="transaction._id" typeahead="item as item.name for item in items | filter:filterParentItem(transaction.type) | filter:{name:$viewValue} | limitTo:15" class="form-control" required ng-autofocus>
 			<p ng-show="form.item.$invalid && !form.item.$pristine" class="help-block">物品不可以为空</p>
 		</div>
 

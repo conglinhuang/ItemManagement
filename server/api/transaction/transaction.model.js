@@ -11,6 +11,7 @@ var TransactionSchema = new Schema({
 		price: Number
 	},
 	quantity: Number,
+	type: String,
 	createDate: Date,
 	lastUpdateDate: Date
 });

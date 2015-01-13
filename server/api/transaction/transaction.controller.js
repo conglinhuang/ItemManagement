@@ -20,6 +20,10 @@ exports.index = function(req, res) {
 		filter['createDate'] = { '$gte' : new Date( params.startDate ), '$lt' : new Date( params.endDate ) };
 	}
 
+	if( params.type ) {
+		filter['type'] = params.type;
+	}
+
 	var sort = {};
 	sort[params.sort] = params.sortOrder;
 
@@ -58,7 +62,7 @@ exports.create = function(req, res) {
 	transaction.lastUpdateDate = new Date();
 	transaction.createDate = transaction.lastUpdateDate; 
 
-	processItem( transaction.item, transaction.quantity, 0, res, function() {
+	processTransaction( transaction, transaction.quantity, 0, res, function() {
 	
 		Transaction.create( req.body, function(err, transaction) {
 			if(err) { return handleError(res, err); }
@@ -78,8 +82,9 @@ exports.update = function(req, res) {
 
 		if (err) { return handleError(res, err); }
 		if(!transaction) { return res.send(404); }
+		if( transaction.item._id != req.body.item._id ) { return handleError(res, 'Item cannot be changed'); }
 
-		processItem( req.body.item, req.body.quantity, transaction.quantity, res, function() {
+		processTransaction( req.body, req.body.quantity, transaction.quantity, res, function() {
 
 			var updated = _.merge(transaction, req.body);
 			updated.lastUpdateDate = new Date();
@@ -101,7 +106,7 @@ exports.destroy = function(req, res) {
 		if(err) { return handleError(res, err); }
 		if(!transaction) { return res.send(404); }
 
-		processItem( transaction.item, 0, transaction.quantity, res, function() {
+		processTransaction( transaction, 0, transaction.quantity, res, function() {
 
 			transaction.remove(function(err) {
 				if(err) { return handleError(res, err); }
@@ -117,8 +122,47 @@ function handleError(res, err) {
 	return res.send(500, err);
 }
 
-function processItem( item, newQuantity, oldQuantity, res, callback ) {
+function processTransaction( transaction, newQuantity, oldQuantity, res, callback ) {
 	
+	var item = transaction.item;
+
+	if( transaction.type === 'SELL' ) {
+		processSell( item, newQuantity, oldQuantity, res, callback );
+	}
+	else if( transaction.type === 'ADD' ) {
+		processAdd( item, newQuantity, oldQuantity, res, callback );
+	}
+	else {
+		return handleError( res, 'Transaction must have a type' );
+	}
+
+}
+
+function processAdd( item, newQuantity, oldQuantity, res, callback ) {
+
+	Item.findById( item._id, function( err, item ) {
+
+		if( err ) { return handleError( res, err ); }
+		if( !item ) { return res.send(404); }
+
+		item.quantity = item.quantity - oldQuantity + newQuantity;
+
+		item.save( function(err) {
+			
+			if (err) { return handleError(res, err); }
+
+			if( callback ) {
+				callback();
+			}
+
+		});
+
+	});
+
+}
+
+function processSell( item, newQuantity, oldQuantity, res, callback ) {
+
 	Item.findById( item._id, function( err, item ) {
 
 		if( err ) { return handleError( res, err ); }
@@ -176,6 +220,6 @@ function processItem( item, newQuantity, oldQuantity, res, callback ) {
 
 		});
 
-	})
-		
+	});
+
 }

@@ -25,25 +25,33 @@
 					</div>
 
 				</div>
-				<div class="col-md-3 text-left">
+				<div class="col-md-2 text-left">
 
 					<p class="input-group">
-						<input type="text" placeholder="开始日期" class="form-control" datepicker-popup="{{dateFormat}}" ng-model="criteria.startDate" is-open="startDateOpened" datepicker-options="dateOptions" ng-required="true" close-text="Close" ng-click="openDatePicker( $event, 'startDateOpened' )"/>
+						<input type="text" placeholder="开始日期" class="form-control" datepicker-popup="{{dateFormatNoTime}}" ng-model="criteria.startDate" is-open="startDateOpened" datepicker-options="dateOptions" ng-required="true" close-text="Close" ng-click="openDatePicker( $event, 'startDateOpened' )"/>
 						<span class="input-group-btn">
 							<button type="button" class="btn btn-default" ng-click="openDatePicker( $event, 'startDateOpened' )"><i class="glyphicon glyphicon-calendar"></i></button>
 						</span>
 					</p>
 
 				</div>
-				<div class="col-md-3 text-left">
+				<div class="col-md-2 text-left">
 
 					<p class="input-group">
-						<input type="text" placeholder="截至日期" class="form-control" datepicker-popup="{{dateFormat}}" ng-model="criteria.endDate" is-open="endDateOpened" datepicker-options="dateOptions" ng-required="true" close-text="Close" ng-click="openDatePicker( $event, 'endDateOpened' )" ng-change="shiftEndDate()"/>
+						<input type="text" placeholder="截至日期" class="form-control" datepicker-popup="{{dateFormatNoTime}}" ng-model="criteria.endDate" is-open="endDateOpened" datepicker-options="dateOptions" ng-required="true" close-text="Close" ng-click="openDatePicker( $event, 'endDateOpened' )" ng-change="shiftEndDate()"/>
 						<span class="input-group-btn">
 							<button type="button" class="btn btn-default" ng-click="openDatePicker( $event, 'endDateOpened' )"><i class="glyphicon glyphicon-calendar"></i></button>
 						</span>
 					</p>
 
+				</div>
+				<div class="col-md-2 text-left">
+					<span>类型：</span>
+					<select class="page-size form-control" ng-model="criteria.type" ng-change="find(1)">
+						<option value="">全部</option>
+						<option value="SELL">出货</option>
+						<option value="ADD">进货</option>
+					</select>
 				</div>
 				<div class="col-md-3 text-right">
 					<a href="" ng-click="find(1)" class="btn btn-info"><span class="glyphicon glyphicon-search"></span> 搜索</a>
@@ -64,7 +72,8 @@
 				</div>
 
 				<div class="col-md-9 text-right">
-					<a href="" ng-click="edit()" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign"></span> 添加</a>
+					<a href="" ng-click="edit( null, 'ADD' )" class="btn btn-success"><span class="glyphicon glyphicon-plus-sign"></span> 进货</a>
+					<a href="" ng-click="edit( null, 'SELL' )" class="btn btn-primary"><span class="glyphicon glyphicon-minus-sign"></span> 出货</a>
 				</div>
 
 			</div>
@@ -84,6 +93,11 @@
 						</th>
 						<th>
 							价格
+						</th>
+						<th>
+							<sort-by onsort="onSort" sortdir="criteria.sortOrder" sortedby="criteria.sort" sortValue="type">
+								类型
+							</sort>
 						</th>
 						<th>
 							<sort-by onsort="onSort" sortdir="criteria.sortOrder" sortedby="criteria.sort" sortValue="createDate">
@@ -110,6 +124,10 @@
 						</td>
 						<td>
 							${{transaction.quantity * transaction.item.price}}
+						</td>
+						<td>
+							<span class="sell" ng-show="transaction.type == 'SELL'">出货</span>
+							<span class="add" ng-show="transaction.type === 'ADD'">进货</span>
 						</td>
 						<td>
 							{{transaction.createDate | date : dateFormat}}

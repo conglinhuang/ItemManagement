@@ -6,6 +6,7 @@ angular.module('itemManagementApp')
 	
 	$scope.transactions = [];
 	$scope.dateFormat = 'yyyy/MM/dd HH:mm';
+	$scope.dateFormatNoTime = 'yyyy/MM/dd';
 	$scope.dateOptions = {
 		formatYear: 'yy',
 		startingDay: 1
@@ -74,8 +75,9 @@ angular.module('itemManagementApp')
 
 	$scope.find(1);
 
-	$scope.edit = function( transaction ) {
+	$scope.edit = function( transaction, type ) {
 
+		transaction = transaction ? transaction : { quantity : 1, type : type };
 		var initial = angular.copy( transaction );
 
 		// open a modal popover
@@ -152,7 +154,7 @@ angular.module( 'itemManagementApp' )
 
 .controller( 'TransactionCtrlEdit', function ( $scope, $http, $modalInstance, transaction, MessageService ) {
 	
-	$scope.transaction = transaction ? transaction : { quantity : 1 };
+	$scope.transaction = transaction;
 	$scope.items = [];
 	$http.get( '/api/items' ).success( function( items ) {
 		$scope.items = items;
@@ -191,12 +193,12 @@ angular.module( 'itemManagementApp' )
 		$scope.formScope = scope;
 	};
 
-	$scope.filterParentItem = function() {
+	$scope.filterParentItem = function( type ) {
 		
 		return function( item ) {
 
 			// only allow parent to show
-			if( item.childItems && item.childItems.length > 0 ) {
+			if( type ==='ADD' || ( item.childItems && item.childItems.length > 0 ) ) {
 				return true;
 			}
 
