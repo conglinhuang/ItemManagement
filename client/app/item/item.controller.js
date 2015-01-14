@@ -2,7 +2,7 @@
 
 angular.module( 'itemManagementApp' )
 
-.controller( 'ItemCtrl', function ( $scope, $http, $modal, $route, MessageService ) {
+.controller( 'ItemCtrl', function ( $scope, $http, $modal, $route, Auth, MessageService ) {
 	
 	$scope.items = [];
 	$scope.sort = {
@@ -19,6 +19,9 @@ angular.module( 'itemManagementApp' )
 		});
 
 	});
+
+	// Auth, returns a function
+	$scope.isLoggedIn = Auth.isLoggedIn;
 
 	$scope.edit = function( item ) {
 

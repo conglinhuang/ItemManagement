@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <base href="/">
-    <title></title>
+    <title>包盒子</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -20,6 +20,8 @@
     <!-- build:css({.tmp,client}) app/app.css -->
     <link rel="stylesheet" href="app/app.css">
       <!-- injector:css -->
+      <link rel="stylesheet" href="app/account/login/login.css">
+      <link rel="stylesheet" href="app/admin/admin.css">
       <link rel="stylesheet" href="app/animation.css">
       <link rel="stylesheet" href="app/app.css">
       <link rel="stylesheet" href="app/item/item.css">
@@ -68,21 +70,29 @@
         <!-- build:js({.tmp,client}) app/app.js -->
         <script src="app/app.js"></script>
           <!-- injector:js -->
-          <script src="app/autofocus/autofocus.directive.js"></script>
-          <script src="app/confirm-click/confirm-click.directive.js"></script>
-          <script src="app/currency-mask/currency-mask.directive.js"></script>
+          <script src="app/account/account.js"></script>
+          <script src="app/account/login/login.controller.js"></script>
+          <script src="app/account/settings/settings.controller.js"></script>
+          <script src="app/admin/admin.controller.js"></script>
+          <script src="app/admin/admin.js"></script>
           <script src="app/item/item.controller.js"></script>
           <script src="app/item/item.js"></script>
-          <script src="app/loading-button/loading-button.directive.js"></script>
           <script src="app/main/main.controller.js"></script>
           <script src="app/main/main.js"></script>
-          <script src="app/sortby/sortby.directive.js"></script>
-          <script src="app/uppercase/uppercase.directive.js"></script>
+          <script src="components/auth/auth.service.js"></script>
+          <script src="components/auth/user.service.js"></script>
+          <script src="components/autofocus/autofocus.directive.js"></script>
+          <script src="components/confirm-click/confirm-click.directive.js"></script>
           <script src="components/confirm/confirm.controller.js"></script>
+          <script src="components/currency-mask/currency-mask.directive.js"></script>
+          <script src="components/loading-button/loading-button.directive.js"></script>
           <script src="components/message/message.controller.js"></script>
           <script src="components/message/message.service.js"></script>
           <script src="components/modal/modal.service.js"></script>
+          <script src="components/mongoose-error/mongoose-error.directive.js"></script>
           <script src="components/navbar/navbar.controller.js"></script>
+          <script src="components/sortby/sortby.directive.js"></script>
+          <script src="components/uppercase/uppercase.directive.js"></script>
           <!-- endinjector -->
         <!-- endbuild -->
 

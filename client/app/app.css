@@ -260,3 +260,7 @@
 .col-md-2-5 {
 	width : 20.83333%;
 }
+
+.navbar-text {
+	padding-top: 0;
+}

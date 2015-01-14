@@ -2,7 +2,7 @@
 
 angular.module('itemManagementApp')
 
-.controller( 'MainCtrl', function ( $scope, $http, $modal, $route, $timeout, MessageService ) {
+.controller( 'MainCtrl', function ( $scope, $http, $modal, $route, $timeout, Auth, MessageService ) {
 	
 	$scope.transactions = [];
 	$scope.dateFormat = 'yyyy/MM/dd HH:mm';
@@ -23,6 +23,9 @@ angular.module('itemManagementApp')
 		$scope.criteria.sort = 'createDate';
 		$scope.criteria.sortOrder = -1;
 	}
+
+	// Auth, returns a function
+	$scope.isLoggedIn = Auth.isLoggedIn;
 
 	$scope.find = function( page ) {
 
@@ -45,9 +48,6 @@ angular.module('itemManagementApp')
 				$scope.totalQuantity += transaction.quantity;
 			});
 
-		})
-		.error( function( data) {
-			MessageService.showMessage( "无法载入数据", 'alert-danger' );
 		});
 
 	};

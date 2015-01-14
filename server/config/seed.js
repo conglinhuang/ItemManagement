@@ -6,6 +6,7 @@
 'use strict';
 
 var Item = require('../api/item/item.model');
+var User = require('../api/user/user.model');
 
 Item.find({}).remove(function() {
 
@@ -25,4 +26,22 @@ Item.find({}).remove(function() {
     }
 
   }
+});
+
+User.find({}).remove(function() {
+  User.create({
+    provider: 'local',
+    name: 'Test User',
+    email: 'test@test.com',
+    password: 'test'
+  }, {
+    provider: 'local',
+    role: 'admin',
+    name: 'Admin',
+    email: 'admin@admin.com',
+    password: '4dm1n'
+  }, function() {
+      console.log('finished populating users');
+    }
+  );
 });
