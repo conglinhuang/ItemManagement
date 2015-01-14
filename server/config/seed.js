@@ -5,7 +5,7 @@
 
 'use strict';
 
-/*var Item = require('../api/item/item.model');
+var Item = require('../api/item/item.model');
 
 Item.find({}).remove(function() {
 
@@ -25,4 +25,4 @@ Item.find({}).remove(function() {
     }
 
   }
-});*/
+});
