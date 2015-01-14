@@ -21,6 +21,6 @@ module.exports = {
             'mongodb://localhost/itemmanagement'
   },
 
-  seedDB: true
+  seedDB: false
 
 };
