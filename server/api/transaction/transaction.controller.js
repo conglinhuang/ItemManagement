@@ -171,7 +171,7 @@ function processSell( item, newQuantity, oldQuantity, res, callback ) {
 		// build an array of child item ids
 		var childItemIds = [];
 		for( var i = 0; i < item.childItems.length; i++ ) {
-			childItemIds.push( item.childItems[i].item._id );
+			childItemIds.push( item.childItems[i].item.id );
 		}
 
 		Item.find({

@@ -5,7 +5,7 @@ var mongoose = require('mongoose'),
 
 var childItemSchema = new Schema({
 	item : {
-		_id : String,
+		id : String,
 		name: String,
 		price: Number
 	},

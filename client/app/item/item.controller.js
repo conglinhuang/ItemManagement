@@ -143,7 +143,7 @@ angular.module( 'itemManagementApp' )
 
 					var childItem = $scope.item.childItems[i].item;
 
-					if( childItem._id === listItem._id ) {
+					if( childItem.id === listItem._id ) {
 						return false;
 					}
 
