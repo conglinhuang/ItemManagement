@@ -245,10 +245,6 @@
 	display: inline;
 }
 
-.low-quantity {
-	color: red;
-}
-
 .add {
 	color: #5cb85c;
 }
@@ -263,4 +259,8 @@
 
 .navbar-text {
 	padding-top: 0;
+}
+
+.pointer {
+	cursor: pointer;
 }

@@ -1,0 +1,44 @@
+<form name="form" ng-submit="save()" ng-init="setFormScope(this)" novalidate>
+
+	<div class="modal-header">
+		<button type="button" class="close" ng-click="cancel()" aria-hidden="true">&times;</button>
+		<h4 class="modal-title">
+			<i class="fa fa-user"></i> <span ng-show="user._id">{{user.name}}</span><span ng-hide="user._id">新用户</span>
+		</h4>
+	</div>
+
+	<div class="modal-body">
+
+		<div class="form-group required" ng-class="{ 'has-error' : form.username.$invalid && !form.username.$pristine }">
+			<label>用户名</label>
+			<input type="text" name="username" ng-model="user.username" class="form-control" required ng-autofocus>
+			<p ng-show="form.username.$invalid && !form.username.$pristine" class="help-block">用户名不可为空</p>
+		</div>
+
+		<div class="form-group">
+			<label>姓名</label>
+			<input type="text" name="name" ng-model="user.name" class="form-control">
+		</div>
+
+		<div class="form-group" ng-class="{ 'has-error' : !user._id && form.password.$invalid && !form.password.$pristine, 'required' : !user._id }">
+			<label>密码</label>
+			<input type="password" ng-minlength="3" min="1" name="password" class="form-control" ng-model="user.password" ng-required="!user._id">
+			<p ng-show="!user._id && form.password.$invalid && !form.password.$pristine" class="help-block">密码必须至少为3位数</p>
+		</div>
+
+		<div class="form-group" ng-show="user._id">
+			<label>
+				<input type="checkbox" name="role" ng-model="user.role" ng-true-value="'admin'" ng-false-value="'user'"> 管理员
+			</label>
+		</div>
+		
+	</div>
+
+	<div class="modal-footer">
+		<button type="button" ng-click="cancel()" class="btn btn-default">取消</button>
+		<button type="submit" ng-disabled="form.$invalid" btn-loading="saving" loading-text="保存中..." class="btn btn-primary">保存</button>
+	</div>
+
+</form>
+
+
