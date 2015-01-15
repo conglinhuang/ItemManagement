@@ -193,19 +193,4 @@ angular.module( 'itemManagementApp' )
 		$scope.formScope = scope;
 	};
 
-	$scope.filterParentItem = function( type ) {
-		
-		return function( item ) {
-
-			// only allow parent to show
-			if( type ==='ADD' || ( item.childItems && item.childItems.length > 0 ) ) {
-				return true;
-			}
-
-			return false;
-
-		};
-
-	}
-
 });

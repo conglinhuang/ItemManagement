@@ -138,7 +138,7 @@ Item.find({}).remove( function() {
 
 });
 
-/*User.find({}).remove(function() {
+User.find({}).remove(function() {
 
 	User.create({
 		provider: 'local',
@@ -156,4 +156,4 @@ Item.find({}).remove( function() {
 		}
 	);
 	
-});*/
+});
