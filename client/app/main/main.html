@@ -123,7 +123,7 @@
 							{{transaction.quantity}}
 						</td>
 						<td>
-							${{transaction.quantity * transaction.item.price}}
+							<span ng-show="transaction.type == 'SELL'">${{transaction.quantity * transaction.item.price}}</span>
 						</td>
 						<td>
 							<span class="sell" ng-show="transaction.type == 'SELL'">出货</span>
@@ -144,7 +144,7 @@
 					</tr>
 					<tr class="table-list-anim">
 						<td>
-							本页共计:
+							本页<span class="sell">出货</span>共计:
 						</td>
 						<td>
 							{{totalQuantity}}

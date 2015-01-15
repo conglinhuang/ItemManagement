@@ -44,8 +44,14 @@ angular.module('itemManagementApp')
 			$scope.totalQuantity = 0;
 
 			angular.forEach( $scope.transactions, function( transaction ) {
-				$scope.totalPrice += transaction.item.price * transaction.quantity;
-				$scope.totalQuantity += transaction.quantity;
+
+				if( transaction.type === 'SELL' ) {
+
+					$scope.totalPrice += transaction.item.price * transaction.quantity;
+					$scope.totalQuantity += transaction.quantity;
+
+				}
+
 			});
 
 		});
