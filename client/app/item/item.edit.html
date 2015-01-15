@@ -11,7 +11,7 @@
 
 		<div class="form-group required" ng-class="{ 'has-error' : form.name.$invalid && !form.name.$pristine }">
 			<label>名称</label>
-			<input type="text" name="name" class="form-control" ng-model="item.name" uppercase required ng-autofocus>
+			<input type="text" name="name" class="form-control" ng-model="item.name" required ng-autofocus>
 			<p ng-show="form.name.$invalid && !form.name.$pristine" class="help-block">名称不可以为空</p>
 		</div>
 		
