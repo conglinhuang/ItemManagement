@@ -118,6 +118,23 @@ angular.module( 'itemManagementApp' )
 		$scope.saving = true;
 
 		var itemBeforeSave = angular.copy( $scope.item );
+
+		// set child item ids
+
+		if( $scope.item.childItems ) {
+
+			angular.forEach( $scope.item.childItems, function( childItem ) {
+
+				if( childItem && childItem.item ) {
+					childItem.item.id = childItem.item._id;
+				}
+
+			});
+
+		}
+
+		// post data
+
 		var url = $scope.item._id ? '/api/items/' + $scope.item._id : '/api/items';
 
 		$http.post( url, $scope.item )

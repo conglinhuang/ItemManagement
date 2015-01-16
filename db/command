@@ -1,0 +1,1 @@
+mongodump -h ds031751.mongolab.com:31751 -d heroku_app33222756 -u dump -p dump -o .
