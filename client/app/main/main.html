@@ -154,6 +154,8 @@
 			</tbody>
 		</table>
 
+		<div class="row text-center" ng-show="loading"><i class="fa fa-spin fa-refresh"></i> 载入中...</div>
+
 		<div class="text-center">
 			<pagination total-items="totalElements" items-per-page="criteria.pageSize" ng-model="criteria.page" ng-change="find()" max-size="10" rotate="false"></pagination>
 		</div>

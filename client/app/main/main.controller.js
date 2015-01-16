@@ -34,7 +34,8 @@ angular.module('itemManagementApp')
 
 	}
 
-	// Auth, returns a function
+	// Auth related functions
+
 	$scope.isLoggedIn = Auth.isLoggedIn;
 	$scope.isAdmin = Auth.isAdmin;
 
@@ -118,8 +119,14 @@ angular.module('itemManagementApp')
 		modalInstance.result.then(
 
 			// when modal is closed (OK)
-			function() {
+			function( type ) {
+
+				if( type ) {
+					$scope.edit( null, type );
+				}
+				
 				$route.reload();
+				
 			},
 
 			// when modal is cancelled (Cancel)
@@ -183,7 +190,7 @@ angular.module( 'itemManagementApp' )
 		$scope.items = items;
 	});
 
-	$scope.save = function() {
+	$scope.save = function( more ) {
 
 		$scope.saving = true;
 
@@ -193,7 +200,7 @@ angular.module( 'itemManagementApp' )
 		$http.post( url, $scope.transaction )
 			.success( function( data ) {
 
-				$modalInstance.close( $scope.transaction );
+				$modalInstance.close( more ? $scope.transaction.type : null );
 				MessageService.showMessage( "交易已保存", 'alert-success' );
 
 			})
