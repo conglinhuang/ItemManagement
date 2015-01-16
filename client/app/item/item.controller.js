@@ -10,6 +10,8 @@ angular.module( 'itemManagementApp' )
 		reverse : false
 	}
 
+	$scope.loading = true;
+
 	$http.get( '/api/items' ).success( function( items ) {
 
 		$scope.items = items;
@@ -17,6 +19,8 @@ angular.module( 'itemManagementApp' )
 		angular.forEach( $scope.items, function( item ) {
 			item.isLow = item.quantity <= item.lowQuantity;
 		});
+
+		$scope.loading = false;
 
 	});
 

@@ -40,6 +40,8 @@ angular.module('itemManagementApp')
 
 	$scope.find = function( page ) {
 
+		$scope.loading = true;
+
 		if( page ) {
 			$scope.criteria.page = page;	
 		}
@@ -64,6 +66,8 @@ angular.module('itemManagementApp')
 				}
 
 			});
+
+			$scope.loading = false;
 
 		});
 
