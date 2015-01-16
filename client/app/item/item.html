@@ -2,111 +2,113 @@
 
 <header class="hero-unit" id="banner" ng-show="isLoggedIn()">
 	<div class="container">
-		<h2>物品管理</h2>
+		<h2>物品一览</h2>
 	</div>
 </header>
 
 <div class="container" ng-show="isLoggedIn()">
-	<div class="row">
-		<div class="jumbotron">
-			
-			<div class="list-actions row">
-				<div class="col-md-3 text-left">
-					<div class="input-group">
+	
+	<div class="jumbotron">
+		
+		<div class="list-actions row">
+			<div class="col-md-3 text-left">
+				<div class="input-group">
+				
+					<input type="text" name="search" class="form-control" ng-model="searchText" placeholder="搜索...">
 					
-						<input type="text" name="search" class="form-control" ng-model="searchText" placeholder="搜索...">
-						
-						<span class="input-group-btn">
-							<button type="button" class="btn btn-default" ng-click="searchText = '';">
-								<span class="glyphicon glyphicon-remove"></span>
-							</button>
-						</span>
-						
-					</div>
-				</div>
-				<div class="col-md-9 text-right">
-					<a href="" ng-click="edit()" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign"></span> 添加</a>
+					<span class="input-group-btn">
+						<button type="button" class="btn btn-default" ng-click="searchText = '';">
+							<span class="glyphicon glyphicon-remove"></span>
+						</button>
+					</span>
+					
 				</div>
 			</div>
-
-			<table class="table table-striped table-bordered">
-				<thead>
-					<tr>
-						<th>
-							<a href="" ng-click="sort.predicate = 'name'; sort.reverse = !sort.reverse;">
-								名称
-							</a>
-						</th>
-						<th>
-							<a href="" ng-click="sort.predicate = 'price'; sort.reverse = !sort.reverse;">
-								单价
-							</a>
-						</th>
-						<th>
-							<a href="" ng-click="sort.predicate = 'quantity'; sort.reverse = !sort.reverse;">
-								数量
-							</a>
-						</th>
-						<th>
-							<a href="" ng-click="sort.predicate = 'weight'; sort.reverse = !sort.reverse;">
-								重量
-							</a>
-						</th>
-						<th>
-							<a href="" ng-click="sort.predicate = 'note'; sort.reverse = !sort.reverse;">
-								备注
-							</a>
-						</th>
-						<th>
-							<a href="" ng-click="sort.predicate = 'lastUpdateDate'; sort.reverse = !sort.reverse;">
-								修改日期
-							</a>
-						</th>
-						<th>
-							<a href="" ng-click="sort.predicate = 'isLow'; sort.reverse = !sort.reverse;">
-								低库存
-							</a>
-						</th>
-						<th colspan="3">
-								操作
-						</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr ng-repeat="item in items | filter:searchText | orderBy : sort.predicate : sort.reverse" class="table-list-anim">
-						<td>
-							{{item.name}}
-						</td>
-						<td>
-							${{item.price}}
-						</td>
-						<td>
-							{{item.quantity}}
-						</td>
-						<td>
-							{{item.weight}}
-						</td>
-						<td>
-							{{item.note}}
-						</td>
-						<td>
-							{{item.lastUpdateDate | date : "yyyy/MM/dd HH:mm"}}
-						</td>
-						<td>
-							<span ng-show="item.isLow" class="glyphicon glyphicon-exclamation-sign low-quantity"></span>
-						</td>
-						<td>
-							<a href="" ng-click="edit(item)"><span class="glyphicon glyphicon-pencil"></span></a>
-						</td>
-						<td>
-							<a href="" ng-confirm-message="{{item.name}}将会被删除！" ng-confirm-click="deleteItem(item)"><span class="glyphicon glyphicon-remove-sign"></span></a>
-						</td>
-					</tr>
-				</tbody>
-			</table>
-
+			<div class="col-md-9 text-right" ng-if="isAdmin()">
+				<a href="" ng-click="edit()" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign"></span> 添加</a>
+			</div>
 		</div>
+
+		<table class="table table-striped table-bordered">
+			<thead>
+				<tr>
+					<th>
+						<a href="" ng-click="sort.predicate = 'name'; sort.reverse = !sort.reverse;">
+							名称
+						</a>
+					</th>
+					<th>
+						<a href="" ng-click="sort.predicate = 'price'; sort.reverse = !sort.reverse;">
+							单价
+						</a>
+					</th>
+					<th>
+						<a href="" ng-click="sort.predicate = 'quantity'; sort.reverse = !sort.reverse;">
+							数量
+						</a>
+					</th>
+					<th>
+						<a href="" ng-click="sort.predicate = 'weight'; sort.reverse = !sort.reverse;">
+							重量
+						</a>
+					</th>
+					<th>
+						<a href="" ng-click="sort.predicate = 'note'; sort.reverse = !sort.reverse;">
+							备注
+						</a>
+					</th>
+					<th ng-if="isAdmin()">
+						<a href="" ng-click="sort.predicate = 'lastUpdateDate'; sort.reverse = !sort.reverse;">
+							修改日期
+						</a>
+					</th>
+					<th>
+						<a href="" ng-click="sort.predicate = 'isLow'; sort.reverse = !sort.reverse;">
+							低库存
+						</a>
+					</th>
+					<th colspan="3" ng-if="isAdmin()">
+							操作
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="item in items | filter:searchText | orderBy : sort.predicate : sort.reverse" class="table-list-anim">
+					<td>
+						{{item.name}}
+					</td>
+					<td>
+						${{item.price}}
+					</td>
+					<td>
+						{{item.quantity}}
+					</td>
+					<td>
+						{{item.weight}}
+					</td>
+					<td>
+						{{item.note}}
+					</td>
+					<td ng-if="isAdmin()">
+						{{item.lastUpdateDate | date : "yyyy/MM/dd HH:mm"}}
+					</td>
+					<td>
+						<span ng-show="item.isLow" class="glyphicon glyphicon-exclamation-sign trash"></span>
+					</td>
+					<td ng-if="isAdmin()">
+						<a href="" ng-click="edit(item)"><span class="glyphicon glyphicon-pencil"></span></a>
+					</td>
+					<td ng-if="isAdmin()">
+						<a href="" ng-confirm-message="{{item.name}}将会被删除！" ng-confirm-click="deleteItem(item)"><span class="glyphicon glyphicon-trash"></span></a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<div class="row text-center" ng-show="loading"><i class="fa fa-spin fa-refresh"></i> 载入中...</div>
+
 	</div>
+
 </div>
 
 <footer class="footer">

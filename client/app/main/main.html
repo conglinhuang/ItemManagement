@@ -9,159 +9,159 @@
 </header>
 
 <div class="container" ng-show="isLoggedIn()">
-	<div class="row">
-		<div class="jumbotron">
-			
-			<div class="row">
-				<div class="col-md-3 text-left">
 
-					<div class="input-group">
-						<input type="text" name="search" class="form-control" ng-model="criteria.searchText" placeholder="搜索..." ng-change="thresholdFind(1)">
-						<span class="input-group-btn">
-							<button type="button" class="btn btn-default" ng-click="criteria.searchText = ''; find(1);">
-								<span class="glyphicon glyphicon-remove"></span>
-							</button>
-						</span>
-					</div>
+	<div class="jumbotron">
+		
+		<div class="row">
+			<div class="col-md-3 text-left">
 
-				</div>
-				<div class="col-md-2 text-left">
-
-					<p class="input-group">
-						<input type="text" placeholder="开始日期" class="form-control" datepicker-popup="{{dateFormatNoTime}}" ng-model="criteria.startDate" is-open="startDateOpened" datepicker-options="dateOptions" ng-required="true" close-text="Close" ng-click="openDatePicker( $event, 'startDateOpened' )"/>
-						<span class="input-group-btn">
-							<button type="button" class="btn btn-default" ng-click="openDatePicker( $event, 'startDateOpened' )"><i class="glyphicon glyphicon-calendar"></i></button>
-						</span>
-					</p>
-
-				</div>
-				<div class="col-md-2 text-left">
-
-					<p class="input-group">
-						<input type="text" placeholder="截至日期" class="form-control" datepicker-popup="{{dateFormatNoTime}}" ng-model="criteria.endDate" is-open="endDateOpened" datepicker-options="dateOptions" ng-required="true" close-text="Close" ng-click="openDatePicker( $event, 'endDateOpened' )" ng-change="shiftEndDate()"/>
-						<span class="input-group-btn">
-							<button type="button" class="btn btn-default" ng-click="openDatePicker( $event, 'endDateOpened' )"><i class="glyphicon glyphicon-calendar"></i></button>
-						</span>
-					</p>
-
-				</div>
-				<div class="col-md-2 text-left">
-					<span>类型：</span>
-					<select class="page-size form-control" ng-model="criteria.type" ng-change="find(1)">
-						<option value="">全部</option>
-						<option value="SELL">出货</option>
-						<option value="ADD">进货</option>
-					</select>
-				</div>
-				<div class="col-md-3 text-right">
-					<a href="" ng-click="find(1)" class="btn btn-info"><span class="glyphicon glyphicon-search"></span> 搜索</a>
-				</div>
+				<p class="input-group">
+					<input type="text" name="search" class="form-control" ng-model="criteria.searchText" placeholder="搜索..." ng-change="thresholdFind(1)">
+					<span class="input-group-btn">
+						<button type="button" class="btn btn-default" ng-click="criteria.searchText = ''; find(1);">
+							<span class="glyphicon glyphicon-remove"></span>
+						</button>
+					</span>
+				</p>
 
 			</div>
+			<div class="col-md-3 text-left">
 
-			<div class="list-actions row">
-
-				<div class="col-md-3 text-left">
-					<span>每页显示：</span>
-					<select class="page-size form-control" ng-model="criteria.pageSize" ng-change="find(1)">
-						<option value="10">10</option>
-						<option value="50">50</option>
-						<option value="100">100</option>
-						<option value="9999999">全部</option>
-					</select>
-				</div>
-
-				<div class="col-md-9 text-right">
-					<a href="" ng-click="edit( null, 'ADD' )" class="btn btn-success"><span class="glyphicon glyphicon-plus-sign"></span> 进货</a>
-					<a href="" ng-click="edit( null, 'SELL' )" class="btn btn-primary"><span class="glyphicon glyphicon-minus-sign"></span> 出货</a>
-				</div>
+				<p class="input-group">
+					<input type="text" placeholder="开始日期" class="form-control" datepicker-popup="{{dateFormatNoTime}}" ng-model="criteria.startDate" is-open="startDateOpened" datepicker-options="dateOptions" ng-required="true" close-text="Close" ng-click="openDatePicker( $event, 'startDateOpened' )" ng-change="find(1)"/>
+					<span class="input-group-btn">
+						<button type="button" class="btn btn-default" ng-click="openDatePicker( $event, 'startDateOpened' )"><i class="glyphicon glyphicon-calendar"></i></button>
+					</span>
+				</p>
 
 			</div>
+			<div class="col-md-3 text-left">
 
-			<table class="table table-striped table-bordered">
-				<thead>
-					<tr>
-						<th>
-							<sort-by onsort="onSort" sortdir="criteria.sortOrder" sortedby="criteria.sort" sortValue="item.name">
-								物品
-							</sort>
-						</th>
-						<th>
-							<sort-by onsort="onSort" sortdir="criteria.sortOrder" sortedby="criteria.sort" sortValue="quantity">
-								数量
-							</sort>
-						</th>
-						<th>
-							价格
-						</th>
-						<th>
-							<sort-by onsort="onSort" sortdir="criteria.sortOrder" sortedby="criteria.sort" sortValue="type">
-								类型
-							</sort>
-						</th>
-						<th>
-							<sort-by onsort="onSort" sortdir="criteria.sortOrder" sortedby="criteria.sort" sortValue="createDate">
-								创建日期
-							</sort>
-						</th>
-						<th>
-							<sort-by onsort="onSort" sortdir="criteria.sortOrder" sortedby="criteria.sort" sortValue="lastUpdateDate">
-								修改日期
-							</sort>
-						</th>
-						<th colspan="3">
-								操作
-						</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr ng-repeat="transaction in transactions" class="table-list-anim">
-						<td>
-							{{transaction.item.name}}
-						</td>
-						<td>
-							{{transaction.quantity}}
-						</td>
-						<td>
-							${{transaction.quantity * transaction.item.price}}
-						</td>
-						<td>
-							<span class="sell" ng-show="transaction.type == 'SELL'">出货</span>
-							<span class="add" ng-show="transaction.type === 'ADD'">进货</span>
-						</td>
-						<td>
-							{{transaction.createDate | date : dateFormat}}
-						</td>
-						<td>
-							{{transaction.lastUpdateDate | date : dateFormat}}
-						</td>
-						<td>
-							<a href="" ng-click="edit(transaction)"><span class="glyphicon glyphicon-pencil"></span></a>
-						</td>
-						<td>
-							<a href="" ng-confirm-message="交易将会被删除！" ng-confirm-click="deleteTransaction(transaction)"><span class="glyphicon glyphicon-remove-sign"></span></a>
-						</td>
-					</tr>
-					<tr class="table-list-anim">
-						<td>
-							本页共计:
-						</td>
-						<td>
-							{{totalQuantity}}
-						</td>
-						<td>
-							${{totalPrice}}
-						</td>
-					</tr>
-				</tbody>
-			</table>
+				<p class="input-group">
+					<input type="text" placeholder="截至日期" class="form-control" datepicker-popup="{{dateFormatNoTime}}" ng-model="criteria.endDate" is-open="endDateOpened" datepicker-options="dateOptions" ng-required="true" close-text="Close" ng-click="openDatePicker( $event, 'endDateOpened' )" ng-change="shiftEndDate()"/ >
+					<span class="input-group-btn">
+						<button type="button" class="btn btn-default" ng-click="openDatePicker( $event, 'endDateOpened' )"><i class="glyphicon glyphicon-calendar"></i></button>
+					</span>
+				</p>
 
-			<div class="text-center">
-				<pagination total-items="totalElements" items-per-page="criteria.pageSize" ng-model="criteria.page" ng-change="find()" max-size="10" rotate="false"></pagination>
+			</div>
+			<div class="col-md-3 text-left" style="margin-bottom: 15px;">
+				<span>类型：</span>
+				<select class="page-size form-control" ng-model="criteria.type" ng-change="find(1)">
+					<option value="">全部</option>
+					<option value="SELL">出货</option>
+					<option value="ADD">进货</option>
+				</select>
 			</div>
 
 		</div>
+
+		<div class="list-actions row" ng-switch="isAdmin()">
+
+			<div class="col-md-3 text-left">
+				<span>每页显示：</span>
+				<select class="page-size form-control" ng-model="criteria.pageSize" ng-change="find(1)">
+					<option value="50">50</option>
+					<option value="100">100</option>
+					<option value="99999999">全部</option>
+				</select>
+			</div>
+
+			<div class="col-md-9 text-right" ng-switch-when="true">
+				<a href="" ng-click="edit( null, 'ADD' )" class="btn btn-success"><span class="glyphicon glyphicon-plus-sign"></span> 进货</a>
+				<a href="" ng-click="edit( null, 'SELL' )" class="btn btn-primary"><span class="glyphicon glyphicon-minus-sign"></span> 出货</a>
+			</div>
+
+			<div class="col-md-9 text-right" ng-switch-when="false">&nbsp;</div>
+
+		</div>
+
+		<table class="table table-striped table-bordered">
+			<thead>
+				<tr>
+					<th>
+						<sort-by onsort="onSort" sortdir="criteria.sortOrder" sortedby="criteria.sort" sortValue="item.name">
+							物品
+						</sort>
+					</th>
+					<th>
+						<sort-by onsort="onSort" sortdir="criteria.sortOrder" sortedby="criteria.sort" sortValue="quantity">
+							数量
+						</sort>
+					</th>
+					<th>
+						价格
+					</th>
+					<th>
+						<sort-by onsort="onSort" sortdir="criteria.sortOrder" sortedby="criteria.sort" sortValue="type">
+							类型
+						</sort>
+					</th>
+					<th ng-if="isAdmin()">
+						<sort-by onsort="onSort" sortdir="criteria.sortOrder" sortedby="criteria.sort" sortValue="createDate">
+							创建日期
+						</sort>
+					</th>
+					<th ng-if="isAdmin()">
+						<sort-by onsort="onSort" sortdir="criteria.sortOrder" sortedby="criteria.sort" sortValue="lastUpdateDate">
+							修改日期
+						</sort>
+					</th>
+					<th colspan="3" ng-if="isAdmin()">
+							操作
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="transaction in transactions" class="table-list-anim">
+					<td>
+						{{transaction.item.name}}
+					</td>
+					<td>
+						{{transaction.quantity}}
+					</td>
+					<td>
+						<span ng-show="transaction.type == 'SELL'">${{transaction.quantity * transaction.item.price}}</span>
+					</td>
+					<td>
+						<span class="sell" ng-show="transaction.type == 'SELL'">出货</span>
+						<span class="add" ng-show="transaction.type === 'ADD'">进货</span>
+					</td>
+					<td ng-if="isAdmin()">
+						{{transaction.createDate | date : dateFormat}}
+					</td>
+					<td ng-if="isAdmin()">
+						{{transaction.lastUpdateDate | date : dateFormat}}
+					</td>
+					<td ng-if="isAdmin()">
+						<a href="" ng-click="edit(transaction)"><span class="glyphicon glyphicon-pencil"></span></a>
+					</td>
+					<td ng-if="isAdmin()">
+						<a href="" ng-confirm-message="交易将会被删除！" ng-confirm-click="deleteTransaction(transaction)"><span class="glyphicon glyphicon-trash"></span></a>
+					</td>
+				</tr>
+				<tr class="table-list-anim">
+					<td>
+						本页<span class="sell">出货</span>共计:
+					</td>
+					<td>
+						{{totalQuantity}}
+					</td>
+					<td>
+						${{totalPrice}}
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<div class="row text-center" ng-show="loading"><i class="fa fa-spin fa-refresh"></i> 载入中...</div>
+
+		<div class="text-center">
+			<pagination total-items="totalElements" items-per-page="criteria.pageSize" ng-model="criteria.page" ng-change="find()" max-size="10" rotate="false"></pagination>
+		</div>
+
 	</div>
+
 </div>
 
 <footer class="footer">

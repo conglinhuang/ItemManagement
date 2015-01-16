@@ -14,20 +14,34 @@ angular.module('itemManagementApp')
 
 	// Initialize criteria.
 	if(!$scope.criteria) {
-		$scope.criteria = {};
-	}
-	if(!$scope.criteria.pageSize) {
-		$scope.criteria.pageSize = 10;
-	}
-	if(!$scope.criteria.sort) {
-		$scope.criteria.sort = 'createDate';
-		$scope.criteria.sortOrder = -1;
+
+		$scope.criteria = {
+
+			pageSize : 100,
+			sort : 'createDate',
+			sortOrder : -1,
+			startDate : new Date(),
+			endDate : new Date()
+
+		};
+
+		$scope.criteria.startDate.setHours(0);
+		$scope.criteria.startDate.setMinutes(0);
+		$scope.criteria.startDate.setSeconds(0);
+		$scope.criteria.endDate.setHours(23);
+		$scope.criteria.endDate.setMinutes(59);
+		$scope.criteria.endDate.setSeconds(59);
+
 	}
 
-	// Auth, returns a function
+	// Auth related functions
+
 	$scope.isLoggedIn = Auth.isLoggedIn;
+	$scope.isAdmin = Auth.isAdmin;
 
 	$scope.find = function( page ) {
+
+		$scope.loading = true;
 
 		if( page ) {
 			$scope.criteria.page = page;	
@@ -44,9 +58,17 @@ angular.module('itemManagementApp')
 			$scope.totalQuantity = 0;
 
 			angular.forEach( $scope.transactions, function( transaction ) {
-				$scope.totalPrice += transaction.item.price * transaction.quantity;
-				$scope.totalQuantity += transaction.quantity;
+
+				if( transaction.type === 'SELL' ) {
+
+					$scope.totalPrice += transaction.item.price * transaction.quantity;
+					$scope.totalQuantity += transaction.quantity;
+
+				}
+
 			});
+
+			$scope.loading = false;
 
 		});
 
@@ -97,8 +119,14 @@ angular.module('itemManagementApp')
 		modalInstance.result.then(
 
 			// when modal is closed (OK)
-			function() {
+			function( type ) {
+
+				if( type ) {
+					$scope.edit( null, type );
+				}
+				
 				$route.reload();
+				
 			},
 
 			// when modal is cancelled (Cancel)
@@ -146,6 +174,8 @@ angular.module('itemManagementApp')
 
 		}
 
+		$scope.find(1);
+
 	};
 
 });
@@ -160,7 +190,7 @@ angular.module( 'itemManagementApp' )
 		$scope.items = items;
 	});
 
-	$scope.save = function() {
+	$scope.save = function( more ) {
 
 		$scope.saving = true;
 
@@ -170,7 +200,7 @@ angular.module( 'itemManagementApp' )
 		$http.post( url, $scope.transaction )
 			.success( function( data ) {
 
-				$modalInstance.close( $scope.transaction );
+				$modalInstance.close( more ? $scope.transaction.type : null );
 				MessageService.showMessage( "交易已保存", 'alert-success' );
 
 			})

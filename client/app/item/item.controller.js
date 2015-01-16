@@ -2,7 +2,7 @@
 
 angular.module( 'itemManagementApp' )
 
-.controller( 'ItemCtrl', function ( $scope, $http, $modal, $route, Auth, MessageService ) {
+.controller( 'ItemCtrl', function ( $scope, $http, $modal, $route, $timeout, Auth, MessageService ) {
 	
 	$scope.items = [];
 	$scope.sort = {
@@ -10,18 +10,39 @@ angular.module( 'itemManagementApp' )
 		reverse : false
 	}
 
-	$http.get( '/api/items' ).success( function( items ) {
-
-		$scope.items = items;
-
-		angular.forEach( $scope.items, function( item ) {
-			item.isLow = item.quantity <= item.lowQuantity;
-		});
-
-	});
-
 	// Auth, returns a function
 	$scope.isLoggedIn = Auth.isLoggedIn;
+	$scope.isAdmin = Auth.isAdmin;
+
+	$scope.load = function() {
+
+		// cancel the current timeout
+		if( $scope.loadTimeout ) {
+			$timeout.cancel( $scope.loadTimeout );
+		}
+
+		$scope.loadTimeout = $timeout( function() {
+			
+			$scope.items = [];
+			$scope.loading = true;
+
+			$http.get( '/api/items' ).success( function( items ) {
+
+				$scope.items = items;
+
+				angular.forEach( $scope.items, function( item ) {
+					item.isLow = item.quantity <= item.lowQuantity;
+				});
+
+				$scope.loading = false;
+
+			});
+
+		}, 100);
+
+	};
+
+	$scope.load();
 
 	$scope.edit = function( item ) {
 
@@ -48,7 +69,7 @@ angular.module( 'itemManagementApp' )
 
 			// when modal is closed (OK)
 			function() {
-				$route.reload();
+				$scope.load();
 			},
 
 			// when modal is cancelled (Cancel)
@@ -64,8 +85,8 @@ angular.module( 'itemManagementApp' )
 
 		$http.delete( '/api/items/' + item._id )
 			.success( function() {
-				$route.reload();
 				MessageService.showMessage( "物品已删除", 'alert-success' );
+				$scope.load();
 			})
 			.error(	function() {
 				MessageService.showMessage( "物品删除失败", 'alert-danger' );

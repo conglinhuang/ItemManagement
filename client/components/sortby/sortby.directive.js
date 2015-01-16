@@ -4,7 +4,7 @@ angular.module('itemManagementApp')
 
 .directive('sortBy', function () {
 	return {
-		templateUrl: '/components/sortby/sortby.directive.html',
+		templateUrl: 'components/sortby/sortby.html',
 		restrict: 'E',
 		transclude: true,
 		replace: true,

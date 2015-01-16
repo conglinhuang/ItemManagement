@@ -7,7 +7,7 @@ angular.module('itemManagementApp')
         'title': '主页',
         'link': '/'
       }, {
-        'title' : '物品管理',
+        'title' : '物品一览',
         'link' : '/item'
       }
     ];

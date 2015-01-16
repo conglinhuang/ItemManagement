@@ -3,7 +3,7 @@
 	<div class="modal-header">
 		<button type="button" class="close" ng-click="cancel()" aria-hidden="true">&times;</button>
 		<h4 class="modal-title">
-			<i class="fa fa-user"></i> {{transaction.item.name}}
+			<i class="fa fa-user"></i> <span ng-if="transaction.type === 'ADD'">进货</span><span ng-if="transaction.type === 'SELL'">出货</span>
 		</h4>
 	</div>
 
@@ -26,6 +26,7 @@
 	<div class="modal-footer">
 		<button type="button" ng-click="cancel()" class="btn btn-default">取消</button>
 		<button type="submit" ng-disabled="form.$invalid" btn-loading="saving" loading-text="保存中..." class="btn btn-primary">保存</button>
+		<button type="button" ng-click="save(true)" ng-disabled="form.$invalid" btn-loading="saving" loading-text="保存中..." class="btn btn-primary">保存并继续</button>
 	</div>
 
 </form>

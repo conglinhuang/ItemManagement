@@ -1,39 +1,39 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
-<div class="container">
-  <div class="row">
-    <div class="col-sm-12">
-      <h1>Change Password</h1>
-    </div>
-    <div class="col-sm-12">
-      <form class="form" name="form" ng-submit="changePassword(form)" novalidate>
+<header class="hero-unit" id="banner" ng-show="isLoggedIn()">
+	<div class="container">
+		<h2>修改密码</h2>
+	</div>
+</header>
 
-        <div class="form-group">
-          <label>Current Password</label>
+<div class="container" ng-show="isLoggedIn()">
 
-          <input type="password" name="password" class="form-control" ng-model="user.oldPassword"
-                 mongoose-error/>
-          <p class="help-block" ng-show="form.password.$error.mongoose">
-              {{ errors.other }}
-          </p>
-        </div>
+	<div class="jumbotron">
 
-        <div class="form-group">
-          <label>New Password</label>
+		<div class="row">
+			<div class="col-sm-12">
+				<form class="form" name="form" ng-submit="changePassword(form)" novalidate>
 
-          <input type="password" name="newPassword" class="form-control" ng-model="user.newPassword"
-                 ng-minlength="3"
-                 required/>
-          <p class="help-block"
-             ng-show="(form.newPassword.$error.minlength || form.newPassword.$error.required) && (form.newPassword.$dirty || submitted)">
-            Password must be at least 3 characters.
-          </p>
-        </div>
+					<div class="alert alert-success" ng-show="message"><span class="glyphicon glyphicon-ok-sign"></span> {{ message }}</div>
 
-        <p class="help-block"> {{ message }} </p>
+					<div class="form-group" ng-class="{ 'has-error' : form.password.$error.mongoose }">
+						<label>旧密码</label>
+						<input type="password" name="password" class="form-control" ng-model="user.oldPassword" mongoose-error/>
+						<p  style="font-size:14px;"class="help-block" ng-show="form.password.$error.mongoose">{{ errors.other }}</p>
+					</div>
 
-        <button class="btn btn-lg btn-primary" type="submit">Save changes</button>
-      </form>
-    </div>
-  </div>
+					<div class="form-group required" ng-class="{ 'has-error' : !user._id && form.newPassword.$invalid && !form.newPassword.$pristine }">
+						<label>新密码</label>
+						<input type="password" ng-minlength="3" name="newPassword" class="form-control" ng-model="user.newPassword" required>
+						<p style="font-size:14px;" ng-show="!user._id && form.newPassword.$invalid && !form.newPassword.$pristine" class="help-block">密码必须至少为3位数</p>
+					</div>
+
+					<button class="btn btn-lg btn-primary" type="submit" ng-disabled="form.$invalid">Save changes</button>
+
+				</form>
+			</div>
+		</div>
+
+	</div>
+
 </div>
