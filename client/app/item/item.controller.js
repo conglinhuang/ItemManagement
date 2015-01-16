@@ -22,6 +22,7 @@ angular.module( 'itemManagementApp' )
 
 	// Auth, returns a function
 	$scope.isLoggedIn = Auth.isLoggedIn;
+	$scope.isAdmin = Auth.isAdmin;
 
 	$scope.edit = function( item ) {
 

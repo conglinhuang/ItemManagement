@@ -14,18 +14,29 @@ angular.module('itemManagementApp')
 
 	// Initialize criteria.
 	if(!$scope.criteria) {
-		$scope.criteria = {};
-	}
-	if(!$scope.criteria.pageSize) {
-		$scope.criteria.pageSize = 10;
-	}
-	if(!$scope.criteria.sort) {
-		$scope.criteria.sort = 'createDate';
-		$scope.criteria.sortOrder = -1;
+
+		$scope.criteria = {
+
+			pageSize : 100,
+			sort : 'createDate',
+			sortOrder : -1,
+			startDate : new Date(),
+			endDate : new Date()
+
+		};
+
+		$scope.criteria.startDate.setHours(0);
+		$scope.criteria.startDate.setMinutes(0);
+		$scope.criteria.startDate.setSeconds(0);
+		$scope.criteria.endDate.setHours(23);
+		$scope.criteria.endDate.setMinutes(59);
+		$scope.criteria.endDate.setSeconds(59);
+
 	}
 
 	// Auth, returns a function
 	$scope.isLoggedIn = Auth.isLoggedIn;
+	$scope.isAdmin = Auth.isAdmin;
 
 	$scope.find = function( page ) {
 
@@ -151,6 +162,8 @@ angular.module('itemManagementApp')
 			endDate.setSeconds(59);
 
 		}
+
+		$scope.find(1);
 
 	};
 

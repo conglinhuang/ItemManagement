@@ -16,8 +16,18 @@ exports.index = function(req, res) {
 		filter['item.name'] = { $regex : params.searchText, $options : 'i' };
 	}
 	
-	if( params.startDate && params.endDate ) {
-		filter['createDate'] = { '$gte' : new Date( params.startDate ), '$lt' : new Date( params.endDate ) };
+	if( params.startDate || params.endDate ) {
+
+		filter['createDate'] = {};
+
+		if( params.startDate ) {
+			filter['createDate']['$gte'] = new Date( params.startDate );
+		}
+
+		if( params.endDate ) {
+			filter['createDate']['$lt'] = new Date( params.endDate );
+		}
+		
 	}
 
 	if( params.type ) {
