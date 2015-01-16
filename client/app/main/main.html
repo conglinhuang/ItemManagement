@@ -15,17 +15,17 @@
 		<div class="row">
 			<div class="col-md-3 text-left">
 
-				<div class="input-group">
+				<p class="input-group">
 					<input type="text" name="search" class="form-control" ng-model="criteria.searchText" placeholder="搜索..." ng-change="thresholdFind(1)">
 					<span class="input-group-btn">
 						<button type="button" class="btn btn-default" ng-click="criteria.searchText = ''; find(1);">
 							<span class="glyphicon glyphicon-remove"></span>
 						</button>
 					</span>
-				</div>
+				</p>
 
 			</div>
-			<div class="col-md-2 text-left">
+			<div class="col-md-3 text-left">
 
 				<p class="input-group">
 					<input type="text" placeholder="开始日期" class="form-control" datepicker-popup="{{dateFormatNoTime}}" ng-model="criteria.startDate" is-open="startDateOpened" datepicker-options="dateOptions" ng-required="true" close-text="Close" ng-click="openDatePicker( $event, 'startDateOpened' )" ng-change="find(1)"/>
@@ -35,7 +35,7 @@
 				</p>
 
 			</div>
-			<div class="col-md-2 text-left">
+			<div class="col-md-3 text-left">
 
 				<p class="input-group">
 					<input type="text" placeholder="截至日期" class="form-control" datepicker-popup="{{dateFormatNoTime}}" ng-model="criteria.endDate" is-open="endDateOpened" datepicker-options="dateOptions" ng-required="true" close-text="Close" ng-click="openDatePicker( $event, 'endDateOpened' )" ng-change="shiftEndDate()"/ >
@@ -45,7 +45,7 @@
 				</p>
 
 			</div>
-			<div class="col-md-5 text-left">
+			<div class="col-md-3 text-left" style="margin-bottom: 15px;">
 				<span>类型：</span>
 				<select class="page-size form-control" ng-model="criteria.type" ng-change="find(1)">
 					<option value="">全部</option>
@@ -67,12 +67,12 @@
 				</select>
 			</div>
 
-			<div class="col-md-9 text-right" ng-switch-when="isAdmin()">
+			<div class="col-md-9 text-right" ng-switch-when="true">
 				<a href="" ng-click="edit( null, 'ADD' )" class="btn btn-success"><span class="glyphicon glyphicon-plus-sign"></span> 进货</a>
 				<a href="" ng-click="edit( null, 'SELL' )" class="btn btn-primary"><span class="glyphicon glyphicon-minus-sign"></span> 出货</a>
 			</div>
 
-			<div class="col-md-9 text-right" ng-switch-when="!isAdmin()">&nbsp;</div>
+			<div class="col-md-9 text-right" ng-switch-when="false">&nbsp;</div>
 
 		</div>
 
