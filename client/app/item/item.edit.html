@@ -1,74 +1,95 @@
-<form name="form" ng-submit="save()" ng-init="setFormScope(this)" novalidate>
+<form name="form" ng-submit="save()" ng-init="setFormScope(this)" novalidate >
 
-	<div class="modal-header">
+	<div class="modal-header" style="border-bottom: none;">
 		<button type="button" class="close" ng-click="cancel()" aria-hidden="true">&times;</button>
 		<h4 class="modal-title">
-			<i class="fa fa-user"></i> {{item.name}}
+			<i class="fa fa-user"></i> <span ng-show="item._id">{{item.name}}</span><span ng-hide="item._id">新建物品</span>
 		</h4>
 	</div>
 
-	<div class="modal-body">
+	<tabset justified="true">
 
-		<div class="form-group required" ng-class="{ 'has-error' : form.name.$invalid && !form.name.$pristine }">
-			<label>名称</label>
-			<input type="text" name="name" class="form-control" ng-model="item.name" required ng-autofocus>
-			<p ng-show="form.name.$invalid && !form.name.$pristine" class="help-block">名称不可以为空</p>
-		</div>
-		
-		<div class="form-group required" ng-class="{ 'has-error' : form.price.$invalid && !form.price.$pristine }">
-			<label>单价</label>
-			<div class="input-group">
-				<div class="input-group-addon">$</div>
-				<input type="text" name="price" class="form-control" ng-model="item.price" currency-mask required>
-			</div>
-			<p ng-show="form.price.$invalid && !form.price.$pristine" class="help-block">单价不可以为空</p>
-		</div>
+		<tab heading="基本信息">
 
-		<div class="form-group required" ng-class="{ 'has-error' : form.quantity.$invalid && !form.quantity.$pristine }">
-			<label>数量</label>
-			<input type="number" min="0" name="quantity" class="form-control" ng-model="item.quantity" required>
-			<p ng-show="form.quantity.$invalid && !form.quantity.$pristine" class="help-block">数量不可以为空</p>
-		</div>
+			<div class="modal-body">
 
-		<div class="form-group">
-			<label>低库存数量</label>
-			<input type="number" min="0" name="lowQuantity" class="form-control" ng-model="item.lowQuantity">
-		</div>
-
-		<div class="form-group">
-			<label>重量</label>
-			<input type="text" name="weight" class="form-control" ng-model="item.weight">
-		</div>
-
-		<div class="form-group">
-			<label>备注</label>
-			<textarea name="note" class="form-control" ng-model="item.note"></textarea>
-		</div>
-
-		<div class="form-group">
-			<label>子物品</label>
-			<input type ="text" ng-model="childItem" placeholder="搜索..." typeahead="childItem as childItem.name for childItem in items | filter:{name:$viewValue} | limitTo:15 | filter:filterSelectedChild()" class="form-control" typeahead-on-select="selectChildItem( $item )">
-			</br>
-			<ul class="list-group" ng-repeat="childItem in item.childItems">
-				<li class="list-group-item">
-
-					<div class="row">
-						<div class="col-md-3 text-left">
-							{{childItem.item.name}}
-						</div>
-						<div class="col-md-6 text-right">
-							<input type="number" min="0" name="quantity" class="form-control list-input" ng-model="childItem.quantity">
-						</div>
-						<div class="col-md-3 text-right">
-							<a href="" ng-confirm-message="{{childItem.name}}将会从子物品中删除！" ng-confirm-click="deleteChildItem(childItem)"><span class="fa fa-remove fa-2x"></span></a>
-						</div>
+				<div class="form-group required" ng-class="{ 'has-error' : form.name.$invalid && !form.name.$pristine }">
+					<label>名称</label>
+					<input type="text" name="name" class="form-control" ng-model="item.name" required ng-autofocus>
+					<p ng-show="form.name.$invalid && !form.name.$pristine" class="help-block">名称不可以为空</p>
+				</div>
+				
+				<div class="form-group required" ng-class="{ 'has-error' : form.price.$invalid && !form.price.$pristine }">
+					<label>单价</label>
+					<div class="input-group">
+						<div class="input-group-addon">$</div>
+						<input type="text" name="price" class="form-control" ng-model="item.price" currency-mask required>
 					</div>
+					<p ng-show="form.price.$invalid && !form.price.$pristine" class="help-block">单价不可以为空</p>
+				</div>
 
-				</li>
-			</ul>
-		</div>
-		
-	</div>
+				<div class="form-group required" ng-class="{ 'has-error' : form.quantity.$invalid && !form.quantity.$pristine }">
+					<label>数量</label>
+					<input type="number" min="0" name="quantity" class="form-control" ng-model="item.quantity" required>
+					<p ng-show="form.quantity.$invalid && !form.quantity.$pristine" class="help-block">数量不可以为空</p>
+				</div>
+
+				<div class="form-group">
+					<label>低库存数量</label>
+					<input type="number" min="0" name="lowQuantity" class="form-control" ng-model="item.lowQuantity">
+				</div>
+
+				<div class="form-group">
+					<label>重量</label>
+					<input type="text" name="weight" class="form-control" ng-model="item.weight">
+				</div>
+
+				<div class="form-group">
+					<label>备注</label>
+					<textarea name="note" class="form-control" ng-model="item.note"></textarea>
+				</div>
+
+			</div>
+
+		</tab>
+
+		<tab>
+
+			<tab-heading>
+				子物品 &nbsp;<span class="badge" ng-show="item.childItems.length > 0">{{item.childItems.length}}</span>
+			</tab-heading>
+
+			<div class="modal-body">
+
+				<div class="form-group">
+					<label>添加</label>
+					<input type ="text" ng-model="childItem" placeholder="搜索..." typeahead="childItem as childItem.name for childItem in items | filter:{name:$viewValue} | limitTo:15 | filter:filterSelectedChild()" class="form-control" typeahead-on-select="selectChildItem( $item )">
+				</div>
+				<div class="form-group" ng-show="item.childItems.length > 0">
+					<ul class="list-group" ng-repeat="childItem in item.childItems">
+						<li class="list-group-item">
+
+							<div class="row">
+								<div class="col-md-3 text-left">
+									{{childItem.item.name}}
+								</div>
+								<div class="col-md-6 text-right">
+									<input type="number" min="0" name="quantity" class="form-control list-input" ng-model="childItem.quantity">
+								</div>
+								<div class="col-md-3 text-right">
+									<a href="" ng-confirm-message="{{childItem.name}}将会从子物品中删除！" ng-confirm-click="deleteChildItem(childItem)"><span class="fa fa-remove fa-2x"></span></a>
+								</div>
+							</div>
+
+						</li>
+					</ul>
+				</div>
+
+			</div>	
+
+		</tab>
+
+	</tabset>
 
 	<div class="modal-footer">
 		<button type="button" ng-click="cancel()" class="btn btn-default">取消</button>

@@ -188,20 +188,28 @@ function processSell( item, newQuantity, oldQuantity, res, callback ) {
 			'_id' : { $in : childItemIds }
 		}, function( err, childItems ) {
 
-			for( var i = 0; i < childItems.length; i++ ) {
-				
-				var childItem = childItems[i];
-				var childNewQuantity = newQuantity * item.childItems[i].quantity;
-				var childOldQuantity = oldQuantity * item.childItems[i].quantity;
+			// check child items
 
-				if( childItem.quantity + childOldQuantity < childNewQuantity ) {
-					return handleError( res, childItem.name + '数量不足' );
-				}
-				else {
-					childItem.quantity = childItem.quantity + childOldQuantity - childNewQuantity;
+			if( childItems ) {
+
+				for( var i = 0; i < childItems.length; i++ ) {
+					
+					var childItem = childItems[i];
+					var childNewQuantity = newQuantity * item.childItems[i].quantity;
+					var childOldQuantity = oldQuantity * item.childItems[i].quantity;
+
+					if( childItem.quantity + childOldQuantity < childNewQuantity ) {
+						return handleError( res, childItem.name + '数量不足' );
+					}
+					else {
+						childItem.quantity = childItem.quantity + childOldQuantity - childNewQuantity;
+					}
+
 				}
 
 			}
+
+			// check master item
 
 			if( item.quantity + oldQuantity < newQuantity ) {
 				return handleError( res, item.name + '数量不足' );
@@ -210,13 +218,21 @@ function processSell( item, newQuantity, oldQuantity, res, callback ) {
 				item.quantity = item.quantity + oldQuantity - newQuantity;
 			}
 
-			for( var i = 0; i < childItems.length; i++ ) {
+			// save child items
 
-				childItems[i].save( function(err) {
-					if (err) { return handleError(res, err); }
-				});
+			if( childItems ) {
+
+				for( var i = 0; i < childItems.length; i++ ) {
+
+					childItems[i].save( function(err) {
+						if (err) { return handleError(res, err); }
+					});
+
+				}
 
 			}
+
+			// save master item
 
 			item.save( function(err) {
 				
