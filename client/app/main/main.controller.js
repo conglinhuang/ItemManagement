@@ -2,7 +2,7 @@
 
 angular.module('itemManagementApp')
 
-.controller( 'MainCtrl', function ( $scope, $http, $modal, $route, $timeout, Auth, MessageService ) {
+.controller( 'MainCtrl', function ( $scope, $http, $modal, $timeout, Auth, MessageService ) {
 	
 	$scope.transactions = [];
 	$scope.dateFormat = 'yyyy/MM/dd HH:mm';
@@ -125,7 +125,7 @@ angular.module('itemManagementApp')
 					$scope.edit( null, type );
 				}
 				
-				$route.reload();
+				$scope.thresholdFind();
 				
 			},
 
@@ -142,7 +142,7 @@ angular.module('itemManagementApp')
 
 		$http.delete( '/api/transactions/' + transaction._id )
 			.success( function() {
-				$route.reload();
+				$scope.thresholdFind();
 				MessageService.showMessage( "交易已删除", 'alert-success' );
 			})
 			.error( function() {

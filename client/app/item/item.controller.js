@@ -2,7 +2,7 @@
 
 angular.module( 'itemManagementApp' )
 
-.controller( 'ItemCtrl', function ( $scope, $http, $modal, $route, $timeout, Auth, MessageService ) {
+.controller( 'ItemCtrl', function ( $scope, $http, $modal, $timeout, Auth, MessageService ) {
 	
 	$scope.items = [];
 	$scope.sort = {
@@ -38,7 +38,7 @@ angular.module( 'itemManagementApp' )
 
 			});
 
-		}, 100);
+		}, 300);
 
 	};
 
