@@ -48,7 +48,7 @@
 		<div class="form-group">
 			<label>子物品</label>
 			<input type ="text" ng-model="childItem" placeholder="搜索..." typeahead="childItem as childItem.name for childItem in items | filter:{name:$viewValue} | limitTo:15 | filter:filterSelectedChild()" class="form-control" typeahead-on-select="selectChildItem( $item )">
-			</br>
+			<br>
 			<ul class="list-group" ng-repeat="childItem in item.childItems">
 				<li class="list-group-item">
 
