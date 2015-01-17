@@ -26,7 +26,6 @@
       <link rel="stylesheet" href="app/app.css">
       <link rel="stylesheet" href="app/item/item.css">
       <link rel="stylesheet" href="app/main/main.css">
-      <link rel="stylesheet" href="components/modal/modal.css">
       <link rel="stylesheet" href="components/sortby/sortby.css">
       <!-- endinjector -->
     <!-- endbuild -->
@@ -91,26 +90,11 @@
           <script src="components/loading-button/loading-button.directive.js"></script>
           <script src="components/message/message.controller.js"></script>
           <script src="components/message/message.service.js"></script>
-          <script src="components/modal/modal.service.js"></script>
           <script src="components/mongoose-error/mongoose-error.directive.js"></script>
           <script src="components/navbar/navbar.controller.js"></script>
           <script src="components/sortby/sortby.directive.js"></script>
           <script src="components/uppercase/uppercase.directive.js"></script>
           <!-- endinjector -->
         <!-- endbuild -->
-
-      <!-- Alert View -->
-  
-      <div ng-controller="MessageCtrl" class="message-container">
-  
-        <div ng-repeat="message in messages" class="slide-list-anim">
-          <div class="alert alert-dismissable" ng-class="message.type">
-            <button type="button" class="close" ng-click="close(message)" data-aria-hidden="true">&times;</button>
-            <p ng-bind-html="message.html" class="message"></p>
-          </div>
-        </div>
-  
-      </div>
-
 </body>
 </html>
