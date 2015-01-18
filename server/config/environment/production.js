@@ -15,7 +15,8 @@ module.exports = {
 
   // MongoDB connection options
   mongo: {
-    uri:    'mongodb://item_management:1t3m@ds031751.mongolab.com:31751/heroku_app33222756' ||
+    uri:    'mongodb://item_management:1t3m@candidate.15.mongolayer.com:10570,candidate.32.mongolayer.com:10531/app33222756' ||
+            // 'mongodb://item_management:1t3m@ds031751.mongolab.com:31751/heroku_app33222756' ||
             process.env.MONGOHQ_URL ||
             process.env.OPENSHIFT_MONGODB_DB_URL+process.env.OPENSHIFT_APP_NAME ||
             'mongodb://localhost/itemmanagement'
