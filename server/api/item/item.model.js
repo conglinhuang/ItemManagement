@@ -19,6 +19,7 @@ var ItemSchema = new Schema({
 	lowQuantity : Number,
 	weight : String,
 	note : String,
+	ignoreQuantity : Boolean,
 	createDate: Date,
 	lastUpdateDate: Date,
 	childItems: [childItemSchema]

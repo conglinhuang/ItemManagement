@@ -125,7 +125,7 @@ angular.module( 'itemManagementApp' )
 
 			angular.forEach( $scope.item.childItems, function( childItem ) {
 
-				if( childItem && childItem.item ) {
+				if( childItem && childItem.item && !childItem.item.id ) {
 					childItem.item.id = childItem.item._id;
 				}
 

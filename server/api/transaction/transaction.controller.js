@@ -188,6 +188,8 @@ function processSell( item, newQuantity, oldQuantity, res, callback ) {
 			'_id' : { $in : childItemIds }
 		}, function( err, childItems ) {
 
+			var itemsToSave = [];
+
 			// check child items
 
 			if( childItems ) {
@@ -195,14 +197,21 @@ function processSell( item, newQuantity, oldQuantity, res, callback ) {
 				for( var i = 0; i < childItems.length; i++ ) {
 					
 					var childItem = childItems[i];
-					var childNewQuantity = newQuantity * item.childItems[i].quantity;
-					var childOldQuantity = oldQuantity * item.childItems[i].quantity;
 
-					if( childItem.quantity + childOldQuantity < childNewQuantity ) {
-						return handleError( res, childItem.name + '数量不足' );
-					}
-					else {
-						childItem.quantity = childItem.quantity + childOldQuantity - childNewQuantity;
+					if( !childItem.ignoreQuantity ) {
+
+						var childNewQuantity = newQuantity * item.childItems[i].quantity;
+						var childOldQuantity = oldQuantity * item.childItems[i].quantity;
+
+						if( childItem.quantity + childOldQuantity < childNewQuantity ) {
+							return handleError( res, childItem.name + '数量不足' );
+						}
+						else {
+							childItem.quantity = childItem.quantity + childOldQuantity - childNewQuantity;
+						}
+
+						itemsToSave.push( childItem );
+
 					}
 
 				}
@@ -211,38 +220,36 @@ function processSell( item, newQuantity, oldQuantity, res, callback ) {
 
 			// check master item
 
-			if( item.quantity + oldQuantity < newQuantity ) {
-				return handleError( res, item.name + '数量不足' );
-			}
-			else {
-				item.quantity = item.quantity + oldQuantity - newQuantity;
-			}
+			if( !item.ignoreQuantity ) {
 
-			// save child items
-
-			if( childItems ) {
-
-				for( var i = 0; i < childItems.length; i++ ) {
-
-					childItems[i].save( function(err) {
-						if (err) { return handleError(res, err); }
-					});
-
+				if( item.quantity + oldQuantity < newQuantity ) {
+					return handleError( res, item.name + '数量不足' );
+				}
+				else {
+					item.quantity = item.quantity + oldQuantity - newQuantity;
 				}
 
+				itemsToSave.push( item );
+
 			}
 
-			// save master item
+			// save items
 
-			item.save( function(err) {
-				
-				if (err) { return handleError(res, err); }
+			for( var i = 0; i < itemsToSave.length; i++ ) {
 
-				if( callback ) {
-					callback();
-				}
+				var itemToSave = itemsToSave[i];
 
-			});
+				itemToSave.save( function(err) {
+					if (err) { return handleError(res, err); }
+				});
+
+			}
+
+			// callback
+
+			if( callback ) {
+				callback();
+			}
 
 		});
 
