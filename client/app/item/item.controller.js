@@ -31,7 +31,7 @@ angular.module( 'itemManagementApp' )
 				$scope.items = items;
 
 				angular.forEach( $scope.items, function( item ) {
-					item.isLow = item.quantity <= item.lowQuantity;
+					item.isLow = !item.ignoreQuantyty && item.quantity <= item.lowQuantity;
 				});
 
 				$scope.loading = false;
@@ -99,7 +99,7 @@ angular.module( 'itemManagementApp' )
 
 .controller( 'ItemCtrlEdit', function ( $scope, $http, $modalInstance, item, items, MessageService ) {
 	
-	$scope.item = item ? item : {};
+	$scope.item = item ? item : { quantity : 0 };
 
 	if( items ) {
 
@@ -167,11 +167,11 @@ angular.module( 'itemManagementApp' )
 		
 		return function( listItem ) {
 
-			// only allow one level of parent-child
+/*			// only allow one level of parent-child
 
 			if( listItem.childItems && listItem.childItems.length > 0 ) {
 				return false;
-			}
+			}*/
 
 			// check when item is already selected
 
@@ -206,7 +206,6 @@ angular.module( 'itemManagementApp' )
 			quantity : 1
 		});
 
-		$scope.childItem = null;
 	}
 
 	$scope.deleteChildItem = function( childItem ) {
