@@ -30,7 +30,7 @@
 			</div>
 		</div>
 
-		<table class="table table-striped table-bordered">
+		<table class="table table-striped table-bordered" ng-init="searchText = '';">
 			<thead>
 				<tr>
 					<th>
@@ -74,7 +74,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr ng-repeat="item in items | filter:searchText | orderBy : sort.predicate : sort.reverse" class="table-list-anim">
+				<tr ng-repeat="item in items | filter: { name : searchText } | orderBy : sort.predicate : sort.reverse" class="table-list-anim">
 					<td>
 						{{item.name}}
 					</td>
